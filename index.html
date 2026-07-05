@@ -31,9 +31,9 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 /* ---- 输入区展开菜单 ---- */
 .chat-expand-btn{font-size:22px;color:#444;background:none;border:none;cursor:pointer;padding:8px;display:flex;justify-content:center;align-items:center;transition:opacity .2s,transform .2s;position:relative}
 .chat-expand-btn.active{opacity:.6;font-size:20px;border-radius:50%;background:#f0f0f0}
-.chat-expand-overlay{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9997;display:none}
+.chat-expand-overlay{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9006;display:none}
 .chat-expand-overlay.active{display:block}
-.chat-expand-menu{position:absolute;bottom:56px;left:10px;display:flex;flex-direction:column;gap:8px;z-index:9998;opacity:0;transform:translateY(20px);transition:opacity .2s,transform .2s;pointer-events:none}
+.chat-expand-menu{position:absolute;bottom:56px;left:10px;display:flex;flex-direction:column;gap:8px;z-index:9007;opacity:0;transform:translateY(20px);transition:opacity .2s,transform .2s;pointer-events:none}
 .chat-expand-menu.active{opacity:1;transform:translateY(0);pointer-events:auto}
 .chat-expand-item{display:flex;align-items:center;gap:10px;background:#fff;border-radius:12px;padding:12px 16px;box-shadow:0 4px 14px rgba(0,0,0,.12);cursor:pointer;white-space:nowrap;font-size:14px;color:#333;min-width:120px;transition:background .15s}
 .chat-expand-item:hover{background:#f5f5f5}
@@ -60,7 +60,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .call-float-pill #callMiniTime{font-family:'SF Mono','Menlo','Consolas',monospace;font-size:14px;min-width:42px;text-align:center;text-shadow:0 1px 1px rgba(0,0,0,.2);letter-spacing:1px}
 .call-float-pill button{padding:4px 10px;border-radius:8px;border:none;font-size:12px;font-weight:600;cursor:pointer;color:#fff;transition:transform .15s,opacity .15s;pointer-events:auto}
 .call-float-pill button:active{transform:scale(.94)}
-.call-float-pill #callMiniReturn{background:rgba(255,255,255,.22);backdrop-filter:blur(4px)}
+.call-float-pill #callMiniReturn{background:rgba(255,255,255,.22);backdrop-filter:blur(4px);will-change:transform}
 .call-float-pill #callMiniHangup{background:#ff3b30;box-shadow:0 2px 6px rgba(255,59,48,.4)}
 .call-combo-item{padding:12px 16px;font-size:14px;cursor:pointer;white-space:nowrap;transition:background .15s}
 .call-combo-item:hover{background:rgba(0,0,0,.05)}
@@ -140,7 +140,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .message.other .bubble{background:var(--other-bubble);color:#000}
 .bubble-sticker{padding:0;background:transparent!important;box-shadow:none;border-radius:8px;overflow:hidden;opacity:var(--bubble-opacity)}
 .bubble-quote{font-size:12px;color:#666;background:var(--quote-bg);padding:6px 10px;border-radius:6px;border-left:3px solid rgba(0,0,0,.2);margin-bottom:8px}
-.bubble-system{background:rgba(0,0,0,.15);color:#fff;font-size:11px;padding:5px 12px;border-radius:14px;align-self:center;margin:8px 0;text-align:center;text-shadow:0 1px 1px rgba(0,0,0,.3);backdrop-filter:blur(4px)}
+.bubble-system{background:rgba(0,0,0,.15);color:#fff;font-size:11px;padding:5px 12px;border-radius:14px;align-self:center;margin:8px 0;text-align:center;text-shadow:0 1px 1px rgba(0,0,0,.3);backdrop-filter:blur(4px);will-change:transform}
 /* 语音/视频通话系统消息区分 */
 .voice-call-msg{background:rgba(255,180,170,.25)!important;border-left:2px solid #ff8a80}
 .video-call-msg{background:rgba(140,180,240,.25)!important;border-left:2px solid #82b1ff}
@@ -166,7 +166,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .inbox-badge{display:none;position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#ff3b30;color:#fff;border-radius:50%;font-size:11px;font-weight:bold;line-height:18px;text-align:center;box-shadow:0 2px 4px rgba(255,59,48,.4)}
 .inbox-badge.show{display:block}
 .inbox-trigger{position:relative;display:inline-flex}
-.inbox-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:9997;display:none;align-items:flex-start;justify-content:center;padding-top:calc(constant(safe-area-inset-top,0px) + 60px);padding-top:calc(env(safe-area-inset-top,0px) + 60px)}
+.inbox-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:9005;display:none;align-items:flex-start;justify-content:center;padding-top:calc(constant(safe-area-inset-top,0px) + 60px);padding-top:calc(env(safe-area-inset-top,0px) + 60px)}
 .inbox-overlay.active{display:flex}
 .inbox-panel{background:#fff;width:92%;max-width:420px;border-radius:16px;max-height:70vh;overflow-y:auto;display:flex;flex-direction:column;box-shadow:0 10px 40px rgba(0,0,0,.2)}
 .inbox-header{padding:16px 18px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:16px}
@@ -181,7 +181,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .inbox-item-meta{font-size:11px;color:#999;line-height:1.4}
 .inbox-empty{padding:40px 20px;text-align:center;color:#bbb;font-size:14px}
 .inbox-mark-read{font-size:12px;color:var(--accent-color);cursor:pointer;background:none;border:none;padding:4px 8px}
-.drawer-backdrop{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:5;background:rgba(0,0,0,.15);-webkit-backdrop-filter:blur(1px);backdrop-filter:blur(1px)}
+.drawer-backdrop{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:5;background:rgba(0,0,0,.15);-webkit-backdrop-filter:blur(1px);backdrop-filter:blur(1px);will-change:transform}
 .drawer-backdrop.active{display:block}
 .drawer{display:none;height:280px;max-height:50dvh;background:#f9f9f9;padding:15px;overflow-y:auto;border-top:1px solid var(--border-color);position:relative;z-index:6;contain:layout style paint;-webkit-overflow-scrolling:touch;padding-bottom:calc(constant(safe-area-inset-bottom,10px) + 15px);padding-bottom:calc(env(safe-area-inset-bottom,10px) + 15px)}
 .drawer.active{display:block}
@@ -199,7 +199,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .app-badge.show{display:inline-block}
 .chat-menu-badge{display:none;position:absolute;top:-4px;left:-4px;min-width:18px;height:18px;background:#ff3b30;color:#fff;border-radius:9px;font-size:10px;font-weight:bold;line-height:18px;text-align:center;padding:0 4px;box-shadow:0 2px 4px rgba(255,59,48,.4)}
 .chat-menu-badge.show{display:inline-block}
-.chat-toolbar-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.3);z-index:9998;animation:fadeIn .15s}
+.chat-toolbar-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.3);z-index:9007;animation:fadeIn .15s}
 .chat-toolbar-panel{position:absolute;top:50px;left:10px;width:calc(100vw - 20px);max-width:320px;background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.2);padding:16px;max-height:80vh;overflow-y:auto;animation:slideDown .2s}
 .chat-toolbar-title{font-size:15px;font-weight:600;text-align:center;margin-bottom:12px;color:#333}
 .chat-toolbar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
@@ -266,7 +266,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .contact-detail-chat-btn:active{opacity:.8}
 .moments-container{flex:1;overflow-y:auto;background:var(--bg-color)}
 .moment-cover{height:220px;background:linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d);background-image:var(--moments-cover-bg,none);background-size:cover;background-position:center;position:relative;margin-bottom:40px}
-.moment-cover-change-btn{position:absolute;left:15px;bottom:8px;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:12px;padding:5px 12px;font-size:12px;cursor:pointer;backdrop-filter:blur(4px)}
+.moment-cover-change-btn{position:absolute;left:15px;bottom:8px;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:12px;padding:5px 12px;font-size:12px;cursor:pointer;backdrop-filter:blur(4px);will-change:transform}
 .moment-profile-bar{display:flex;align-items:center;gap:12px;padding:10px 90px 10px 15px;background:#fff;border-bottom:1px solid var(--border-color);margin-top:-25px;position:relative;z-index:1}
 .moment-publish-btn{background:var(--link-color);color:#fff;border:none;border-radius:16px;padding:6px 12px;font-size:13px;cursor:pointer;white-space:nowrap;flex-shrink:0}
 .moment-signature{flex:1;color:#888;font-size:13px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right;padding-right:5px}
@@ -345,7 +345,60 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .timeline-box{border-left:3px solid var(--accent-color);padding-left:18px;margin-left:12px;margin-top:10px}
 .timeline-item{position:relative;margin-bottom:20px}
 .timeline-item::before{content:'';position:absolute;left:-26.5px;top:2px;width:14px;height:14px;border-radius:50%;background:var(--accent-color);border:3px solid #fff;box-shadow:0 0 0 1px var(--accent-color)}
-.doodle-canvas{width:100%;height:360px;border:2px solid #eee;border-radius:12px;background:#fff;cursor:crosshair;touch-action:none}
+.doodle-canvas-wrapper{
+  flex:1;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.doodle-canvas{
+  width:100%;
+  flex:1;
+  min-height:200px;
+  max-height:calc(100vh - 300px);
+  border:2px solid #eee;
+  border-radius:12px;
+  background:#fff;
+  cursor:crosshair;
+  touch-action:none;
+  display:block;
+}
+@media (max-height:600px) {
+  .doodle-canvas{min-height:150px;max-height:calc(100vh - 250px)}
+}
+@media (min-height:800px) {
+  .doodle-canvas{min-height:280px;max-height:calc(100vh - 380px)}
+}
+.doodle-panel-container{
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:max(15px,env(safe-area-inset-bottom));
+}
+.doodle-card{
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  border:1px solid var(--border-color);
+  box-shadow:0 4px 10px rgba(0,0,0,.03);
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  min-height:0;
+  overflow:hidden;
+}
+.doodle-send-btn{
+  flex-shrink:0;
+  margin-top:12px;
+  -webkit-appearance:none;
+  appearance:none;
+}
 .color-picker{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-bottom:15px;justify-items:center}
 .color-swatch{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);cursor:pointer;transition:transform .2s}
 .doodle-keyboard{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:15px}
@@ -358,7 +411,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .doodle-mode-toggle{display:flex;gap:6px;margin-bottom:10px}
 .doodle-mode-toggle .mode-btn{flex:1;padding:8px 0;border-radius:20px;border:2px solid #eee;background:#f9f9f9;font-size:13px;font-weight:600;cursor:pointer;text-align:center;transition:all .2s}
 .doodle-mode-toggle .mode-btn.active{border-color:var(--accent-color);background:var(--accent-color);color:#fff}
-.action-sheet-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:9999;display:none;opacity:0;transition:opacity .2s;backdrop-filter:blur(2px)}
+.action-sheet-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:9008;display:none;opacity:0;transition:opacity .2s;backdrop-filter:blur(2px);will-change:transform}
 .action-sheet{position:absolute;bottom:-100%;left:0;width:100%;background:#f5f5f5;border-radius:20px 20px 0 0;display:flex;flex-direction:column;transition:bottom .3s cubic-bezier(.1,.8,.2,1);padding-bottom:constant(safe-area-inset-bottom);padding-bottom:env(safe-area-inset-bottom);overflow:hidden}
 .action-btn{background:#fff;border:none;width:100%;padding:20px;font-size:17px;color:#333;border-bottom:1px solid var(--border-color);cursor:pointer;font-weight:500}
 .action-btn.danger{color:var(--danger-color)}
@@ -398,7 +451,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .call-log-time{font-size:11px;color:#bbb;text-align:right}
 .interact-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.75);color:#fff;padding:12px 24px;border-radius:24px;font-size:18px;z-index:99999;pointer-events:none;animation:toastAnim 1.8s ease forwards}
 @keyframes toastAnim{0%{opacity:0;transform:translate(-50%,-60%)}20%{opacity:1;transform:translate(-50%,-50%)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-40%)}}
-.msg-banner{position:fixed;top:calc(constant(safe-area-inset-top,0px) + 44px);top:calc(env(safe-area-inset-top,0px) + 44px);left:0;right:0;margin:8px 12px;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-radius:16px;padding:12px 16px;box-shadow:0 4px 20px rgba(0,0,0,0.15);z-index:99990;display:flex;align-items:center;gap:12px;cursor:pointer;border-left:4px solid #a18cd1;animation:bannerSlide 0.35s ease}
+.msg-banner{position:fixed;top:calc(constant(safe-area-inset-top,0px) + 44px);top:calc(env(safe-area-inset-top,0px) + 44px);left:0;right:0;margin:8px 12px;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);will-change:transform;border-radius:16px;padding:12px 16px;box-shadow:0 4px 20px rgba(0,0,0,0.15);z-index:99990;display:flex;align-items:center;gap:12px;cursor:pointer;border-left:4px solid #a18cd1;animation:bannerSlide 0.35s ease}
 @keyframes bannerSlide{0%{opacity:0;transform:translateY(-20px)}100%{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{0%{opacity:0;transform:translateY(-4px)}100%{opacity:1;transform:translateY(0)}}
 .msg-banner-avatar{width:40px;height:40px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0}
@@ -516,7 +569,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .hongbao-overlay,.transfer-overlay{
   position:fixed;inset:0;background:rgba(0,0,0,.5);
   display:none;align-items:flex-end;justify-content:center;
-  z-index:9990;
+  z-index:9000;
 }
 .hongbao-overlay.active,.transfer-overlay.active{display:flex}
 .hongbao-panel,.transfer-panel{
@@ -563,11 +616,12 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .grab-overlay{
   position:fixed;inset:0;background:rgba(160,20,10,.92);
   display:none;align-items:center;justify-content:center;
-  z-index:9995;flex-direction:column;
+  z-index:9002;flex-direction:column;
 }
 .grab-overlay.active{display:flex;animation:grabFadeIn .3s ease-out}
 @keyframes grabFadeIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
-.grab-hb-icon{font-size:90px;margin-bottom:12px;animation:grabBounce 1.2s ease-in-out infinite alternate}
+.grab-hb-icon{font-size:90px;margin-bottom:12px}
+.grab-overlay.active .grab-hb-icon{animation:grabBounce 1.2s ease-in-out infinite alternate}
 @keyframes grabBounce{from{transform:scale(1) rotate(-5deg)}to{transform:scale(1.08) rotate(5deg)}}
 .grab-title{font-size:17px;color:rgba(255,255,255,.85);margin-bottom:6px}
 .grab-from{font-size:14px;color:#ffe28a;margin-bottom:28px;font-weight:600}
@@ -576,9 +630,10 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
   background:linear-gradient(135deg,#ffe28a,#ffc107);color:#c0282a;
   font-size:17px;font-weight:700;border:none;cursor:pointer;
   box-shadow:0 4px 20px rgba(0,0,0,.3);
-  animation:grabPulse 1.5s ease-in-out infinite;
 }
+.grab-overlay.active .grab-btn{animation:grabPulse 1.5s ease-in-out infinite}
 @keyframes grabPulse{0%,100%{box-shadow:0 4px 20px rgba(0,0,0,.3),0 0 0 0 rgba(255,226,138,.4)}50%{box-shadow:0 4px 20px rgba(0,0,0,.3),0 0 0 18px rgba(255,226,138,0)}}
+#checkinDragHandle,#pokeDragHandle,#momentStickerDragHandle{touch-action:manipulation}
 .grab-result{
   background:linear-gradient(135deg,#e8441a,#a01208);
   border-radius:18px;padding:30px 40px;text-align:center;
@@ -614,13 +669,13 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 .wallet-detail-amount.income{color:#07c160}
 .wallet-detail-amount.expense{color:#fa5151}
 .wallet-detail-empty{text-align:center;color:#999;font-size:13px;padding:20px 0}
-.wallet-recharge-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center;z-index:9990}
+.wallet-recharge-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center;z-index:9000}
 .wallet-recharge-overlay.active{display:flex}
 .wallet-recharge-panel{background:#fff;border-radius:18px 18px 0 0;width:100%;max-width:480px;padding:24px 20px 36px;animation:slideUpPanel .25s ease-out;position:relative}
 /* ---- 确认收款 overlay ---- */
 .confirm-transfer-overlay{
   position:fixed;inset:0;background:rgba(0,0,0,.5);
-  display:none;align-items:center;justify-content:center;z-index:9992;
+  display:none;align-items:center;justify-content:center;z-index:9001;
 }
 .confirm-transfer-overlay.active{display:flex;animation:grabFadeIn .2s}
 .confirm-transfer-panel{
@@ -636,7 +691,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 /* ---- 转账详情内页 ---- */
 .tf-detail-overlay{
   position:fixed;inset:0;background:rgba(0,0,0,.6);
-  display:none;align-items:center;justify-content:center;z-index:9996;
+  display:none;align-items:center;justify-content:center;z-index:9003;
 }
 .tf-detail-overlay.active{display:flex;animation:grabFadeIn .25s ease-out}
 .tf-detail-panel{
@@ -667,7 +722,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 /* ---- 红包详情内页 ---- */
 .hb-detail-overlay{
   position:fixed;inset:0;background:rgba(0,0,0,.6);
-  display:none;align-items:center;justify-content:center;z-index:9997;
+  display:none;align-items:center;justify-content:center;z-index:9004;
 }
 .hb-detail-overlay.active{display:flex;animation:grabFadeIn .25s ease-out}
 .hb-detail-panel{
@@ -1040,8 +1095,8 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 
 <div id="view-doodle" class="view">
   <div class="header"><div class="header-inner"><button class="text-btn" onclick="goBack()">返回</button><div class="header-center"><span class="name">涂鸦板</span></div><div style="width:30px"></div></div></div>
-  <div class="panel-container">
-    <div class="card">
+  <div class="panel-container doodle-panel-container">
+    <div class="card doodle-card">
       <div class="color-picker">
         <div class="color-swatch" style="background:#000000" onclick="setDoodleColor('#000000')"></div>
         <div class="color-swatch" style="background:#636e72" onclick="setDoodleColor('#636e72')"></div>
@@ -1074,7 +1129,9 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
         <div class="mode-btn active" id="doodleModeDrawBtn" onclick="switchDoodleMode('draw')">🖊️ 涂鸦模式</div>
         <div class="mode-btn" id="doodleModeTextBtn" onclick="switchDoodleMode('text')">⌨️ 文字模式</div>
       </div>
-      <canvas id="doodleCanvas" class="doodle-canvas"></canvas>
+      <div class="doodle-canvas-wrapper">
+        <canvas id="doodleCanvas" class="doodle-canvas"></canvas>
+      </div>
       <div class="doodle-text-panel" id="doodleTextPanel">
         <textarea id="doodleTextInput" class="doodle-text-input" placeholder="输入文字内容...&#10;支持多行，回车换行"></textarea>
         <div class="doodle-text-opts">
@@ -1099,8 +1156,8 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
           <button class="btn btn-outline" style="height:28px;font-size:12px;padding:0 10px" onclick="previewDoodleText()">📋 预览到画布</button>
         </div>
       </div>
-      <button class="btn btn-primary" style="margin-top:15px" onclick="sendDoodle()">发送涂鸦到聊天</button>
     </div>
+    <button class="btn btn-primary doodle-send-btn" onclick="sendDoodle()">发送涂鸦到聊天</button>
   </div>
 </div>
 
@@ -1259,25 +1316,11 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
         <button id="groupPinBtn" onclick="togglePinContact()" style="width:100%;height:42px;border-radius:12px;border:none;font-size:14px;font-weight:600;cursor:pointer;background:#f0f0f0;color:#333;transition:all 0.2s">📌 置顶该群聊</button>
       </div>
       <div style="height:1px;background:#ddd;margin:15px 0"></div>
-
-      <div class="card-title" style="margin-top:10px">📊 频率控制</div>
-      <div class="form-group"><label class="form-label">群聊回复延迟 (分钟)</label>
-        <div style="display:flex;gap:6px"><input type="number" min="0.5" step="0.5" id="csGroupReplyMin" class="form-input" style="width:50%" onchange="saveContactSetting('group_reply_min',this.value)"><span style="align-self:center">~</span><input type="number" min="1" step="0.5" id="csGroupReplyMax" class="form-input" style="width:50%" onchange="saveContactSetting('group_reply_max',this.value)"></div></div>
-      <div class="form-group"><label class="form-label">连发条数上限</label><input type="number" min="1" max="5" id="csGroupMaxReplies" class="form-input" onchange="saveContactSetting('group_max_replies',this.value)"></div>
-      <div class="form-group"><label class="form-label">主动消息间隔 (分钟)</label>
-        <div style="display:flex;gap:6px"><input type="number" min="1" step="1" id="csGroupMsgMin" class="form-input" style="width:50%" onchange="saveContactSetting('group_msg_min',this.value)"><span style="align-self:center">~</span><input type="number" min="5" step="1" id="csGroupMsgMax" class="form-input" style="width:50%" onchange="saveContactSetting('group_msg_max',this.value)"></div></div>
-
-      <div style="height:1px;background:#ddd;margin:15px 0"></div>
       <div class="card-title">🎨 群聊背景</div>
       <label class="btn btn-outline" for="csChatBgInput" style="cursor:pointer">更换 聊天背景图</label>
       <br><br>
       <label class="btn btn-outline" for="csGroupCallBgInput" style="cursor:pointer">📞 更换 语音通话全屏底图</label>
       <input type="file" id="csGroupCallBgInput" accept="image/*" style="display:none">
-
-      <div style="height:1px;background:#ddd;margin:15px 0"></div>
-      <div class="card-title">👤 成员管理</div>
-      <div id="groupMembersList" style="margin-bottom:8px"></div>
-      <button onclick="showGroupAddMember()" style="width:100%;height:38px;border-radius:10px;border:1px dashed #ccc;background:#fff;font-size:13px;cursor:pointer;margin-bottom:6px">+ 添加成员</button>
 
       <div style="height:1px;background:#ddd;margin:15px 0"></div>
       <div class="form-group">
@@ -1362,7 +1405,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 </div>
 
 <!-- 朋友圈表情包选择器（独立浮层，可拖动） -->
-<div id="momentStickerPicker" style="display:none;position:fixed;left:10px;bottom:80px;z-index:10001;background:#fff;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:0;width:min(calc(100vw - 20px),400px);max-height:min(280px,50vh);overflow:hidden">
+<div id="momentStickerPicker" style="display:none;position:fixed;left:10px;bottom:80px;z-index:9009;background:#fff;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:0;width:min(calc(100vw - 20px),400px);max-height:min(280px,50vh);overflow:hidden">
   <div id="momentStickerDragHandle" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:#f5f5f5;border-radius:14px 14px 0 0;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;flex-shrink:0">
     <span style="font-size:11px;color:#999">⋮⋮ 拖我移动</span>
     <span onclick="document.getElementById('momentStickerPicker').style.display='none'" style="cursor:pointer;font-size:16px;color:#999">✕</span>
@@ -1373,12 +1416,12 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 </div>
 
 <!-- 评论迷你表情包选择器（朋友圈+日记共用） -->
-<div id="miniStickerPicker" style="display:none;position:fixed;background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.2);z-index:9999;padding:10px;width:min(300px,calc(100vw - 20px));max-height:min(300px,50vh);overflow-y:auto;-webkit-overflow-scrolling:touch">
+<div id="miniStickerPicker" style="display:none;position:fixed;background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.2);z-index:9009;padding:10px;width:min(300px,calc(100vw - 20px));max-height:min(300px,50vh);overflow-y:auto;-webkit-overflow-scrolling:touch">
   <div style="font-size:11px;color:#999;margin-bottom:6px;display:flex;justify-content:space-between"><span>选择表情包</span><span onclick="document.getElementById('miniStickerPicker').style.display='none'" style="cursor:pointer;font-size:14px">✕</span></div>
   <div id="miniStickerGrid" style="display:flex;flex-direction:column;gap:4px"></div>
 </div>
 
-<div class="action-sheet-overlay" id="actionSheetOverlay">
+<div class="action-sheet-overlay" id="actionSheetOverlay" onclick="closeActionSheet()">
   <div class="action-sheet" id="actionSheet">
     <button class="action-btn" onclick="executeAction('quote')">引用</button>
     <button class="action-btn" style="color:var(--accent-color)" onclick="executeAction('favorite')">收藏</button>
@@ -1449,7 +1492,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 </div>
 
 <!-- 抢红包动画 Overlay -->
-<div class="grab-overlay" id="grabOverlay">
+<div class="grab-overlay" id="grabOverlay" onclick="if(event.target===this)closeGrabOverlay()">
   <div id="grabMain">
     <div class="grab-hb-icon">🧧</div>
     <div class="grab-title" id="grabTitle">的红包</div>
@@ -1466,7 +1509,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 </div>
 
 <!-- 确认收款 Overlay -->
-<div class="confirm-transfer-overlay" id="confirmTransferOverlay">
+<div class="confirm-transfer-overlay" id="confirmTransferOverlay" onclick="event.target===this&&closeConfirmTransfer()">
   <div class="confirm-transfer-panel">
     <h3>💳 收款确认</h3>
     <div class="ct-amount" id="ctAmount">¥100.00</div>
@@ -1479,7 +1522,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 </div>
 
 <!-- 转账详情内页 Overlay -->
-<div class="tf-detail-overlay" id="tfDetailOverlay">
+<div class="tf-detail-overlay" id="tfDetailOverlay" onclick="event.target===this&&closeTfDetail()">
   <div class="tf-detail-panel" id="tfDetailPanel">
     <div class="tf-detail-header" id="tfDetailHeader">转账详情</div>
     <div class="tf-detail-amount" id="tfDetailAmount">¥0.00</div>
@@ -1501,7 +1544,7 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 </div>
 
 <!-- 红包详情内页 Overlay -->
-<div class="hb-detail-overlay" id="hbDetailOverlay">
+<div class="hb-detail-overlay" id="hbDetailOverlay" onclick="event.target===this&&closeHbDetail()">
   <div class="hb-detail-panel">
     <div class="hb-detail-top" id="hbDetailTop">
       <div class="hb-detail-icon">🧧</div>
@@ -1575,7 +1618,32 @@ input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
 </div>
 
 
-
+<!-- 群管理页面 -->
+<div id="view-group-manage" class="view">
+  <div class="header"><div class="header-inner"><button class="text-btn" onclick="goBack()">返回</button><div class="header-center"><span class="name">⚙️ 管理群</span></div><div style="width:30px"></div></div></div>
+  <div class="panel-container">
+    <!-- 频率控制 -->
+    <div class="card">
+      <div class="card-title">📊 频率控制</div>
+      <div class="form-group"><label class="form-label">群聊回复延迟 (分钟)</label>
+        <div style="display:flex;gap:6px"><input type="number" min="0.5" step="0.5" id="gmGroupReplyMin" class="form-input" style="width:50%" onchange="saveContactSetting('group_reply_min',this.value)"><span style="align-self:center">~</span><input type="number" min="1" step="0.5" id="gmGroupReplyMax" class="form-input" style="width:50%" onchange="saveContactSetting('group_reply_max',this.value)"></div></div>
+      <div class="form-group"><label class="form-label">连发条数上限</label><input type="number" min="1" max="5" id="gmGroupMaxReplies" class="form-input" onchange="saveContactSetting('group_max_replies',this.value)"></div>
+      <div class="form-group"><label class="form-label">主动消息间隔 (分钟)</label>
+        <div style="display:flex;gap:6px"><input type="number" min="1" step="1" id="gmGroupMsgMin" class="form-input" style="width:50%" onchange="saveContactSetting('group_msg_min',this.value)"><span style="align-self:center">~</span><input type="number" min="5" step="1" id="gmGroupMsgMax" class="form-input" style="width:50%" onchange="saveContactSetting('group_msg_max',this.value)"></div></div>
+    </div>
+    <!-- 成员管理（添加/移除） -->
+    <div class="card">
+      <div class="card-title">👤 成员管理</div>
+      <div id="groupManageMemberList" style="margin-bottom:8px"></div>
+      <button onclick="showGroupAddMember()" style="width:100%;height:38px;border-radius:10px;border:1px dashed #ccc;background:#fff;font-size:13px;cursor:pointer;margin-bottom:6px">+ 添加成员</button>
+    </div>
+    <!-- 角色与禁言 -->
+    <div class="card">
+      <div class="card-title">👥 角色与禁言</div>
+      <div id="groupManageList"></div>
+    </div>
+  </div>
+</div>
 
 <script>
 
@@ -2555,7 +2623,7 @@ function initKeepAlive(){
     const el=document.getElementById('keepAliveAudio');
     if(el.paused){el.play().catch(()=>{});}
     if(_kaCtx&&_kaCtx.state==='suspended')_kaCtx.resume().catch(()=>{});
-  },60000);
+  },120000);
   if('Notification' in window && Notification.permission !== 'granted' && Notification.permission !== 'denied')
     Notification.requestPermission();
 }
@@ -2568,7 +2636,7 @@ document.addEventListener('visibilitychange',()=>{
   }
 });
 let _bannerTimer=null;
-function showMsgBanner(title,body,onClick){
+function showMsgBanner(title,body,onClick,contactId,icon){
   // 已在聊天页不弹
   if(document.getElementById('view-chat').classList.contains('active'))return;
   // 移除旧的
@@ -2576,12 +2644,25 @@ function showMsgBanner(title,body,onClick){
   if(_bannerTimer)clearTimeout(_bannerTimer);
   const el=document.createElement('div');
   el.id='msgBanner';el.className='msg-banner';
-  el.innerHTML=`<div class="msg-banner-avatar avatar-sean"></div><div class="msg-banner-content"><div class="msg-banner-name">${title}</div><div class="msg-banner-text">${body||'有新消息'}</div></div><div style="color:#ccc;font-size:18px">›</div>`;
+  var avatarPart=`<div class="msg-banner-avatar avatar-sean"></div>`;
+  var bodyText=icon||body||'有新消息';
+  el.innerHTML=avatarPart+`<div class="msg-banner-content"><div class="msg-banner-name">${title}</div><div class="msg-banner-text">${bodyText}</div></div><div style="color:#ccc;font-size:18px">›</div>`;
   el.onclick=()=>{el.remove();if(onClick)onClick();else switchView('view-chat');};
   document.body.appendChild(el);
+  if(contactId){
+    const avDiv=el.querySelector('.msg-banner-avatar');
+    getContactSettingForId(String(contactId),'sean_avatar','').then(function(av){
+      if(av){
+        avDiv.style.backgroundImage=`url(${av.replace(/'/g,'%27')})`;
+        avDiv.style.backgroundSize='cover';
+        avDiv.style.backgroundPosition='center';
+        avDiv.classList.remove('avatar-sean');
+      }
+    });
+  }
   _bannerTimer=setTimeout(()=>el.remove(),5000);
 }
-function playNotifySound(title="新消息",body="",showSysNotify=false,navTarget){
+function playNotifySound(title="新消息",body="",showSysNotify=false,navTarget,contactId,icon){
   // 直接使用调用方传入的 title，不再用 getActiveContactName() 覆盖
   // 避免"和a聊天时b发消息，弹窗显示a的名字"的问题
   const notifyTitle=title||'新消息';
@@ -2597,7 +2678,7 @@ function playNotifySound(title="新消息",body="",showSysNotify=false,navTarget
     bannerOnClick=function(){switchView('view-chat');};
   }
   // 显示 in-app 横幅弹窗
-  showMsgBanner(notifyTitle,body,bannerOnClick);
+  showMsgBanner(notifyTitle,body,bannerOnClick,contactId,icon);
   if(showSysNotify && "Notification" in window && Notification.permission === "granted"){
     try{
       var noti=new Notification(notifyTitle,{body:body||'',tag:'sean-chat',renotify:true});
@@ -2665,6 +2746,7 @@ async function switchView(id){
   else if(id==='view-checkinlogs'){await renderCheckinLogsUI();updateInboxBadges();}
   else if(id==='view-weather')renderWeatherUI();
   else if(id==='view-wallet')await renderWalletUI();
+  else if(id==='view-group-manage')await renderGroupManage();
   else if(id==='view-contacts'){invalidateContactsCache();await renderContactsList();updateContactsToolBarBadges();}
 }
 
@@ -2811,12 +2893,12 @@ function getGroupMemberNameCached(memberId){
 }
 function getGroupMemberAvatarHTML(memberId){
   const av=_groupMemberAvatarCache[String(memberId)];
-  if(av)return `<div class="avatar" style="background-image:url('${av.replace(/'/g,"\\'")}');background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#2c3e50;box-shadow:0 1px 3px rgba(0,0,0,.1)"></div>`;
+  if(av)return `<div class="avatar" style="background-image:url('${av.replace(/'/g,"\\'")}');background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#2c3e50;box-shadow:0 1px 3px rgba(0,0,0,.1)" onclick="openAvatarInteract('${memberId}')"></div>`;
   const name=getGroupMemberNameCached(memberId);
   const ch=name.charAt(0);
   const colorPalette=['#667eea,#764ba2','#f093fb,#f5576c','#4facfe,#00f2fe','#43e97b,#38f9d7','#fa709a,#fee140','#a18cd1,#fbc2eb','#fda085,#f6d365','#ff9a9e,#fecfef','#a1c4fd,#c2e9fb'];
   const idx=Math.abs(String(memberId).split('').reduce((s,ch)=>s+ch.charCodeAt(0),0))%colorPalette.length;
-  return `<div class="avatar" style="background:linear-gradient(135deg,${colorPalette[idx]});display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:bold;color:#fff" onclick="void(0)">${ch}</div>`;
+  return `<div class="avatar" style="background:linear-gradient(135deg,${colorPalette[idx]});display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:bold;color:#fff" onclick="openAvatarInteract('${memberId}')">${ch}</div>`;
 }
 
 // ── 单条插入（实时消息用） ──
@@ -3113,6 +3195,7 @@ const CONTACT_APP_DEFS=[
   {id:'flashcards',name:'闪光卡',icon:'💬',view:'view-flashcards'},
   {id:'wallet',name:'钱包',icon:'💰',view:'view-wallet'},
   {id:'contactsettings',name:'客制化',icon:'🎨',view:'view-contact-settings'},
+  {id:'groupmanage',name:'管理群',icon:'⚙️',view:'view-group-manage'},
 ];
 const CHAT_TOOLBAR_APPS = ['diary','letters','checkinlogs','timeline','decide','doodle','weather','favorites','anniversary','flashcards','wallet','contactsettings'];
 function toggleChatToolbar(){
@@ -3128,7 +3211,7 @@ function hideChatToolbar(e){
   if(e && e.target !== document.getElementById('chatToolbarOverlay')) return;
   document.getElementById('chatToolbarOverlay').style.display='none';
 }
-const GROUP_TOOLBAR_APPS = ['timeline','decide','doodle','favorites','wallet','contactsettings'];
+const GROUP_TOOLBAR_APPS = ['timeline','decide','doodle','favorites','contactsettings','groupmanage'];
 async function populateChatToolbar(){
   const grid=document.getElementById('chatToolbarGrid');
   grid.innerHTML='';
@@ -3243,7 +3326,7 @@ async function selectTargetMember(){
   // 用 action sheet 弹出
   const overlay=document.createElement('div');
   overlay.className='fullscreen-overlay';
-  overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9995;display:flex;align-items:flex-end;justify-content:center';
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9002;display:flex;align-items:flex-end;justify-content:center';
   overlay.innerHTML=`<div style="background:#fff;border-radius:16px 16px 0 0;width:100%;max-width:480px;padding:16px 20px 36px;max-height:60vh;overflow-y:auto"><div style="font-size:15px;font-weight:600;text-align:center;margin-bottom:12px">选择收款成员</div>${html}<div style="text-align:center;padding:10px;color:#888;cursor:pointer;margin-top:8px;border-top:1px solid #f0f0f0" onclick="this.closest('.fullscreen-overlay').remove()">取消</div></div>`;
   overlay.onclick=e=>{if(e.target===overlay)overlay.remove();};
   document.body.appendChild(overlay);
@@ -4004,7 +4087,7 @@ async function seanSendHongbaoOrTransfer(cid,memberId,type){
     // 更新缓存
     _allCachedMsgs.push(msgData);
     // 播放通知
-    playNotifySound(notifyTitle,'[红包]',true,cid);
+    playNotifySound(notifyTitle,'[红包]',true,cid,cid);
     // 拼手气红包：自动领取 + 24h退回
     if(isLucky){
       autoSeanGrabHongbao(msgData);
@@ -4036,7 +4119,7 @@ async function seanSendHongbaoOrTransfer(cid,memberId,type){
     try{msgData.id=await add('messages',msgData);}catch(e){msgData.id='st_'+Date.now();}
     appendMessageToUI(msgData,'');
     _allCachedMsgs.push(msgData);
-    playNotifySound(notifyTitle,'[转账]',true,cid);
+    playNotifySound(notifyTitle,'[转账]',true,cid,cid);
     autoSeanConfirmTransfer(msgData);
   }
 }
@@ -4246,6 +4329,12 @@ async function doContactRecharge(contactId,contactName){
 
 
 async function sendMyMessage(content=null,msgType='text'){
+  // 群聊禁言检查：我是否被禁言
+  var _contacts=await getAll('contacts');
+  var _cur=_contacts.find(c=>String(c.id)===String(activeContactId));
+  if(_cur&&_cur.type==='group'&&await isGroupMemberMuted(activeContactId,'me')){
+    alert('你已被禁言，无法发送消息');return;
+  }
   // 通话中打字自动缩小通话界面
   if(callActive&&document.getElementById('callOverlay').style.display==='flex')minimizeCall();
   const input=document.getElementById('msgInput');
@@ -4362,7 +4451,7 @@ async function triggerSeanLogic(triggerTime){
           if(Math.random()<.20)parts.push(emojis[Math.floor(Math.random()*emojis.length)]);
           r={sender:'sean',type:'text',text:parts.join(' '),timestamp:Date.now(),quote:quoteText,quoteMedia:quoteMedia,_corrKey:triggerTime,contactId:cid};
         }
-        r.id=await add('messages',r);const _cidName=await getContactNameById(cid);playNotifySound(_cidName||seanName,r.text||'[表情包]',true,cid);
+        r.id=await add('messages',r);const _cidName=await getContactNameById(cid);playNotifySound(_cidName||seanName,r.text||'[表情包]',true,cid,cid);
         if(cur===target-1&&activeContactId===cid){const _cs2=await getAll('contacts');const _cc2=_cs2.find(c=>String(c.id)===String(cid));statusEl.innerText=(_cc2&&_cc2.status)||'';statusEl.classList.remove('typing');}
         appendMessageToUI(r,'');if(Math.random()<.006){const _rid=r.id;const _delay=Math.floor(Math.random()*113000)+6000;setTimeout(()=>autoRecallBySean(_rid),_delay);}cur++;next();
         }catch(e){console.error('[回复异常]',e);cur++;next();}
@@ -4375,6 +4464,9 @@ async function triggerSeanLogic(triggerTime){
 async function triggerGroupReply(groupId,triggerTime,groupContact,allContacts){
   const members=groupContact.members||[];
   if(members.length===0)return;
+  // 预取群禁言列表
+  var _trMutedRaw=await get('settings','group_muted_'+groupId);
+  var _trMutedIds=_trMutedRaw&&_trMutedRaw.value?JSON.parse(_trMutedRaw.value):[];
   const statusEl=document.getElementById('chatStatus');
   const receiptEl=document.getElementById(`receipt-${triggerTime}`);
 
@@ -4388,17 +4480,22 @@ async function triggerGroupReply(groupId,triggerTime,groupContact,allContacts){
     if(receiptEl){
       receiptEl.innerText='已读';receiptEl.style.color='var(--accent-color)';
     }
-    // 4% 概率群里某个成员主动发红包/转账给你
+    // 4% 概率群里某个成员主动发红包/转账给你（禁言检查）
     if(Math.random()<0.04&&members.length>0){
-      const randMember=members[Math.floor(Math.random()*members.length)];
-      const mc=allContacts.find(c=>String(c.id)===String(randMember));
-      const sendType=Math.random()<0.55?'hongbao':'transfer';
-      const extraDelay=Math.floor(Math.random()*8000)+3000;
-      setTimeout(async()=>{await seanSendHongbaoOrTransfer(groupId,randMember,sendType);},extraDelay);
+      var _unmutedHb=members.filter(mid=>_trMutedIds.indexOf(String(mid))<0);
+      if(_unmutedHb.length>0){
+        var randMember=_unmutedHb[Math.floor(Math.random()*_unmutedHb.length)];
+        var mc=allContacts.find(c=>String(c.id)===String(randMember));
+        var sendType=Math.random()<0.55?'hongbao':'transfer';
+        var extraDelay=Math.floor(Math.random()*8000)+3000;
+        setTimeout(async()=>{await seanSendHongbaoOrTransfer(groupId,randMember,sendType);},extraDelay);
+      }
     }
     // 连发多条：每个成员独立随机发1~maxReplies条
     (async()=>{
       for(const memberId of members){
+        // 禁言检查：被禁言的成员跳过
+        if(_trMutedIds.indexOf(String(memberId))>=0)continue;
         const memberTarget=Math.floor(Math.random()*maxReplies)+1;
         const memberContact=allContacts.find(c=>String(c.id)===String(memberId));
         const memberName=memberContact?memberContact.name:'成员';
@@ -4448,7 +4545,7 @@ async function triggerGroupReply(groupId,triggerTime,groupContact,allContacts){
                   r={sender:'sean',type:'text',text:parts.join(' '),timestamp:Date.now(),quote:quoteText,quoteMedia:quoteMedia,_corrKey:triggerTime,contactId:groupId,senderMemberId:memberId};
                 }
                 r.id=await add('messages',r);
-                playNotifySound(`${groupContact.name} ${memberName}`,r.text||'[表情包]',true,groupId);
+                playNotifySound(`${groupContact.name}·${memberName}`,r.text||'[表情包]',true,groupId,groupId);
                 appendMessageToUI(r,'');
                 if(Math.random()<.006){const _rid=r.id;const _delay=Math.floor(Math.random()*113000)+6000;setTimeout(()=>autoRecallBySean(_rid),_delay);}
               }catch(e){console.error('[群聊回复异常]',e);}
@@ -4480,17 +4577,21 @@ async function fireGroupProactiveMsg(groupId){
   if(!group||group.type!=='group')return;
   const members=group.members||[];
   if(members.length===0)return;
+  // 禁言检查：从候选池中排除被禁言的成员
+  var _mutedList=await _getGroupMutedList(groupId);
+  var _unmutedMembers=members.filter(m=>_mutedList.indexOf(String(m))<0);
+  if(_unmutedMembers.length===0)return;
   // 预判回复类型，找有对应资源的成员（10次尝试）
   const _rr=Math.random();
   let pickMemberId=null,memberContact,memberName,memberCards=[],memberStickers=[];
   for(let _a=0;_a<10;_a++){
-    const _c=members[Math.floor(Math.random()*members.length)];
+    const _c=_unmutedMembers[Math.floor(Math.random()*_unmutedMembers.length)];
     const _cds=await csGetAllByContactId('flashcards',_c);
     const _sts=await csGetAllByContactId('stickers',_c);
     const _ok=_rr<.10?_sts.length>0:_rr<.15?true:_rr<.20?true:_rr<.25?true:_cds.length>0;
     if(_ok){pickMemberId=_c;memberCards=_cds;memberStickers=_sts;break;}
   }
-  if(!pickMemberId){pickMemberId=members[Math.floor(Math.random()*members.length)];memberCards=await csGetAllByContactId('flashcards',pickMemberId);memberStickers=await csGetAllByContactId('stickers',pickMemberId);}
+  if(!pickMemberId){pickMemberId=_unmutedMembers[Math.floor(Math.random()*_unmutedMembers.length)];memberCards=await csGetAllByContactId('flashcards',pickMemberId);memberStickers=await csGetAllByContactId('stickers',pickMemberId);}
   memberContact=contacts.find(c=>String(c.id)===String(pickMemberId));
   memberName=memberContact?memberContact.name:'成员';
 
@@ -4526,7 +4627,7 @@ async function fireGroupProactiveMsg(groupId){
   }
   if(m){
     m.id=await add('messages',m);
-    playNotifySound(`${group.name} ${memberName}`,m.text||'[表情包]',true,groupId);
+    playNotifySound(`${group.name}·${memberName}`,m.text||'[表情包]',true,groupId,groupId);
     if(activeContactId===groupId)appendMessageToUI(m,'');
   }
 }
@@ -4588,13 +4689,13 @@ async function fireProactiveMsg(){
   // 查岗 10% (0%~10%)
   if(_randPM < 0.10){triggerSeanCheckIn();return;}
   // 涂鸦 2.5% (10%~12.5%)
-  if(_randPM < 0.125){const doodle=await generateSeanDoodle();if(doodle){const m={sender:'sean',type:'doodle',content:doodle,text:null,timestamp:Date.now(),quote:null,contactId:pickId};m.id=await add('messages',m);playNotifySound(pickContact.name||seanName,'[涂鸦]',true,pickId);if(document.getElementById('view-chat').classList.contains('active')&&String(activeContactId)===String(pickId))appendMessageToUI(m,'');return;}}
+  if(_randPM < 0.125){const doodle=await generateSeanDoodle();if(doodle){const m={sender:'sean',type:'doodle',content:doodle,text:null,timestamp:Date.now(),quote:null,contactId:pickId};m.id=await add('messages',m);playNotifySound(pickContact.name||seanName,'[涂鸦]',true,pickId,pickId);if(document.getElementById('view-chat').classList.contains('active')&&String(activeContactId)===String(pickId))appendMessageToUI(m,'');return;}}
   // 文字图片 2.5% (12.5%~15%)
-  if(_randPM < 0.15){const textImg=await generateSeanTextImage();if(textImg){const m={sender:'sean',type:'doodle',content:textImg,text:null,timestamp:Date.now(),quote:null,contactId:pickId};m.id=await add('messages',m);playNotifySound(pickContact.name||seanName,'[文字图片]',true,pickId);if(document.getElementById('view-chat').classList.contains('active')&&String(activeContactId)===String(pickId))appendMessageToUI(m,'');return;}}
+  if(_randPM < 0.15){const textImg=await generateSeanTextImage();if(textImg){const m={sender:'sean',type:'doodle',content:textImg,text:null,timestamp:Date.now(),quote:null,contactId:pickId};m.id=await add('messages',m);playNotifySound(pickContact.name||seanName,'[文字图片]',true,pickId,pickId);if(document.getElementById('view-chat').classList.contains('active')&&String(activeContactId)===String(pickId))appendMessageToUI(m,'');return;}}
   // 表情包 6.5% (15%~21.5%)
-  if(_randPM < 0.215){const stickers=await csGetAllFor('stickers',pickId);if(stickers.length>0){const stk=stickers[Math.floor(Math.random()*stickers.length)];const m={sender:'sean',type:'sticker',content:stk.content,text:null,timestamp:Date.now(),quote:null,contactId:pickId};m.id=await add('messages',m);playNotifySound(pickContact.name||seanName,'[表情包]',true,pickId);if(document.getElementById('view-chat').classList.contains('active')&&String(activeContactId)===String(pickId))appendMessageToUI(m,'');return;}}
+  if(_randPM < 0.215){const stickers=await csGetAllFor('stickers',pickId);if(stickers.length>0){const stk=stickers[Math.floor(Math.random()*stickers.length)];const m={sender:'sean',type:'sticker',content:stk.content,text:null,timestamp:Date.now(),quote:null,contactId:pickId};m.id=await add('messages',m);playNotifySound(pickContact.name||seanName,'[表情包]',true,pickId,pickId);if(document.getElementById('view-chat').classList.contains('active')&&String(activeContactId)===String(pickId))appendMessageToUI(m,'');return;}}
   // 字卡文字 78.5% (21.5%~100%)
-  const cards=await csGetAllFor('flashcards',pickId);if(cards.length>0){const t=cards[Math.floor(Math.random()*cards.length)].replyText;const m={sender:'sean',type:'text',text:t,timestamp:Date.now(),quote:null,contactId:pickId};m.id=await add('messages',m);playNotifySound(pickContact.name||seanName,t,true,pickId);if(document.getElementById('view-chat').classList.contains('active')&&String(activeContactId)===String(pickId))appendMessageToUI(m,'');}
+  const cards=await csGetAllFor('flashcards',pickId);if(cards.length>0){const t=cards[Math.floor(Math.random()*cards.length)].replyText;const m={sender:'sean',type:'text',text:t,timestamp:Date.now(),quote:null,contactId:pickId};m.id=await add('messages',m);playNotifySound(pickContact.name||seanName,t,true,pickId,pickId);if(document.getElementById('view-chat').classList.contains('active')&&String(activeContactId)===String(pickId))appendMessageToUI(m,'');}
 }
 
 let _momLastDate='',_momTodayCount=0,_momTodayTotal=0,_momScheduled=false;
@@ -4636,7 +4737,7 @@ async function _postOneMoment(){
   _momTodayCount++;
   addMomentInboxItem(newMomId,{type:'moment_comment',action:`📝 ${pickName} 发了新朋友圈`,text:parts.join(' '),timestamp:Date.now(),contactId:pickId});
   bumpModuleUnread('moments',pickId);
-  playNotifySound(pickName,'发了朋友圈',false,'moments');
+  playNotifySound(pickName,'发了朋友圈',false,'moments',pickId);
   if(document.getElementById('view-moments').classList.contains('active'))renderMomentsUI();
   // 自动安排其他联系人来点赞/评论（使用用户设置的回复间隔）
   scheduleMomentInteract(newMomId, pickId);
@@ -4714,7 +4815,7 @@ async function _loadOnlineTimestamps(){
 async function _saveOnlineTimestamps(){await put('settings',{key:'online_last_update',value:_onlineLastUpdate})}
 function _scheduleContactOnlineUpdate(contact){
   const cid=String(contact.id);const key='ol_'+cid;const now=Date.now();
-  const minD=30*60*1000,maxD=5*60*60*1000;let delay=minD+Math.random()*(maxD-minD);
+  const minD=30*60*1000,maxD=6*60*60*1000;let delay=minD+Math.random()*(maxD-minD);
   // 跨会话恢复：如果距离上次更新已超时，立即触发
   const last=_onlineLastUpdate[cid]||0;const elapsed=now-last;
   if(elapsed>=delay)delay=500+Math.random()*3000;
@@ -4819,48 +4920,59 @@ async function initiateCheckIn(customQ){
   scheduleCheckinReply();
 }
 
-// ── 查岗面板拖动 ──
+// ── 统一拖拽引擎（查岗面板 / 拍一拍面板 / 朋友圈表情选择器） ──
 (function(){
-  let dragging=false,ox=0,oy=0;
+  var _targets=[];
+  var _dragging=null,_ox=0,_oy=0;
+  function _find(e){
+    for(var i=0;i<_targets.length;i++){
+      var t=_targets[i];
+      var h=document.getElementById(t.hid);
+      if(!h||!h.contains(e.target))continue;
+      var p=document.getElementById(t.pid);
+      if(!p||p.style.display==='none')continue;
+      return {t:t,p:p};
+    }
+    return null;
+  }
   document.addEventListener('mousedown',function(e){
-    const handle=document.getElementById('checkinDragHandle');
-    if(!handle||!handle.contains(e.target))return;
-    const panel=document.getElementById('checkinPanel');
-    if(!panel||panel.style.display==='none')return;
-    dragging=true;
-    const rect=panel.getBoundingClientRect();
-    ox=e.clientX-rect.left;oy=e.clientY-rect.top;
-    panel.style.left=rect.left+'px';panel.style.top=rect.top+'px';panel.style.transform='none';
+    var f=_find(e);if(!f)return;
     e.preventDefault();
+    var r=f.p.getBoundingClientRect();
+    _dragging=f;_ox=e.clientX-r.left;_oy=e.clientY-r.top;
+    if(f.t.onStart)f.t.onStart(f.p,r);
+    else{f.p.style.transform='none';f.p.style.top=r.top+'px';f.p.style.left=r.left+'px';}
   });
   document.addEventListener('mousemove',function(e){
-    if(!dragging)return;
-    const panel=document.getElementById('checkinPanel');
-    if(!panel)return;
-    panel.style.left=(e.clientX-ox)+'px';panel.style.top=(e.clientY-oy)+'px';
+    if(!_dragging)return;
+    var p=_dragging.p,l=e.clientX-_ox,t=e.clientY-_oy;
+    if(_dragging.t.clamp){var c=_dragging.t.clamp(l,t,p);l=c.left;t=c.top;}
+    p.style.left=l+'px';p.style.top=t+'px';
   });
-  document.addEventListener('mouseup',function(){dragging=false;});
+  document.addEventListener('mouseup',function(){_dragging=null;});
   document.addEventListener('touchstart',function(e){
-    const handle=document.getElementById('checkinDragHandle');
-    if(!handle||!handle.contains(e.target))return;
-    const panel=document.getElementById('checkinPanel');
-    if(!panel||panel.style.display==='none')return;
-    dragging=true;
-    const rect=panel.getBoundingClientRect();
-    const t=e.touches[0];
-    ox=t.clientX-rect.left;oy=t.clientY-rect.top;
-    panel.style.left=rect.left+'px';panel.style.top=rect.top+'px';panel.style.transform='none';
+    var f=_find(e);if(!f)return;
+    var r=f.p.getBoundingClientRect(),t=e.touches[0];
+    _dragging=f;_ox=t.clientX-r.left;_oy=t.clientY-r.top;
+    if(f.t.onStart)f.t.onStart(f.p,r);
+    else{f.p.style.transform='none';f.p.style.top=r.top+'px';f.p.style.left=r.left+'px';}
   },{passive:false});
   document.addEventListener('touchmove',function(e){
-    if(!dragging)return;
-    const panel=document.getElementById('checkinPanel');
-    if(!panel)return;
-    const t=e.touches[0];
-    panel.style.left=(t.clientX-ox)+'px';panel.style.top=(t.clientY-oy)+'px';
+    if(!_dragging)return;
+    var p=_dragging.p,t=e.touches[0],l=t.clientX-_ox,top=t.clientY-_oy;
+    if(_dragging.t.clamp){var c=_dragging.t.clamp(l,top,p);l=c.left;top=c.top;}
+    p.style.left=l+'px';p.style.top=top+'px';
     e.preventDefault();
   },{passive:false});
-  document.addEventListener('touchend',function(){dragging=false;});
+  document.addEventListener('touchend',function(){_dragging=null;});
+  window._regDrag=function(hid,pid,onStart,clamp){
+    _targets.push({hid:hid,pid:pid,onStart:onStart,clamp:clamp});
+  };
 })();
+// 注册三个拖拽目标
+_regDrag('checkinDragHandle','checkinPanel',function(p,r){p.style.transform='none';p.style.left=r.left+'px';p.style.top=r.top+'px';});
+_regDrag('pokeDragHandle','pokeSettingsPanel',function(p,r){p.style.transform='none';p.style.top=r.top+'px';p.style.left=r.left+'px';});
+_regDrag('momentStickerDragHandle','momentStickerPicker',function(p,r){p.style.bottom='auto';p.style.right='auto';p.style.top=r.top+'px';p.style.left=r.left+'px';},function(l,t,p){return{left:Math.max(0,Math.min(l,window.innerWidth-p.offsetWidth)),top:Math.max(0,Math.min(t,window.innerHeight-p.offsetHeight))};});
 
 // 点击面板外部关闭
 document.addEventListener('click',function(e){
@@ -4914,7 +5026,7 @@ async function triggerSeanCheckIn(){
   const qs=[`在干嘛？`,`想我了吗？`,`有想我吗？`,`在和谁玩？`,`在和谁聊天？`,`睡了吗？`,`你在哪里，我好想你`,`突击检查，在干什么`,`每日一问，你爱我吗`,`什么时候来找我`,`前面在吃什么`,`有看上什么东西吗`,`有买什么吗`,`出去玩吗`,`在不在`,`怎么不多多找我`];
   const q=qs[Math.floor(Math.random()*qs.length)];
   pendingCheckinId=await add('checkinLogs',{timestamp:Date.now(),initiator:'sean',question:q,reply:null,replyTime:null,contactId:pickId});
-  playNotifySound(`${pickName}`,`突击检查，请您尽快回复`,true,pickId);
+  playNotifySound(pickName,'🔔 突击检查，请您尽快回复',true,pickId,pickId);
   addCheckinInboxItem({entryId:pendingCheckinId,action:`${pickName} 发来查岗`,text:q,timestamp:Date.now(),contactId:pickId});
   bumpModuleUnread('checkin',pickId);
 }
@@ -4970,15 +5082,16 @@ async function sendCheckinConfirm(logId){
 let _pokeTapTimer=null,_pokeTapTarget=null;
 
 // 点聊天头像 → 双击拍一拍（单击无反应）
-function openAvatarInteract(target){
+async function openAvatarInteract(target){
   if(_pokeTapTimer&&_pokeTapTarget===target){
     clearTimeout(_pokeTapTimer);_pokeTapTimer=null;_pokeTapTarget=null;
-    // 群聊下双击头像 → 跳到群聊专属互拍逻辑
-    const contacts=_contactsCache||[];
+    const contacts=await loadContacts();
     const current=contacts.find(c=>String(c.id)===String(activeContactId));
+    // 群聊：根据 target 决定拍谁
     if(current&&current.type==='group'){
-      if(target==='sean') doGroupPoke(current.id,'me',current.members[Math.floor(Math.random()*current.members.length)]);
-      else doGroupPoke(current.id,'me','me');
+      if(target==='me') doGroupPoke(current.id,'me','me');
+      else if(target==='sean') doGroupPoke(current.id,'me',current.members[Math.floor(Math.random()*current.members.length)]);
+      else doGroupPoke(current.id,'me',target);
       return;
     }
     if(target==='sean') doPokeSean();
@@ -5041,50 +5154,6 @@ async function adaptPokePanelForGroup(){
     descEls[1].innerText=isGroup?'群内成员互拍时 | 发起方[左词库随机]对方[右词库随机]':'拍对方时 | 发起方[左词库随机]对方[右词库随机]';
   }
 }
-
-// 拍一拍面板拖动功能
-(function(){
-  let dragging=false,ox=0,oy=0;
-  document.addEventListener('mousedown',function(e){
-    const handle=document.getElementById('pokeDragHandle');
-    if(!handle||!handle.contains(e.target))return;
-    const panel=document.getElementById('pokeSettingsPanel');
-    if(!panel||panel.style.display==='none')return;
-    dragging=true;
-    const rect=panel.getBoundingClientRect();
-    ox=e.clientX-rect.left;oy=e.clientY-rect.top;
-    panel.style.transform='none';panel.style.top=rect.top+'px';panel.style.left=rect.left+'px';
-    e.preventDefault();
-  });
-  document.addEventListener('mousemove',function(e){
-    if(!dragging)return;
-    const panel=document.getElementById('pokeSettingsPanel');
-    if(!panel)return;
-    panel.style.left=(e.clientX-ox)+'px';panel.style.top=(e.clientY-oy)+'px';
-  });
-  document.addEventListener('mouseup',function(){dragging=false;});
-  // 触屏支持
-  document.addEventListener('touchstart',function(e){
-    const handle=document.getElementById('pokeDragHandle');
-    if(!handle||!handle.contains(e.target))return;
-    const panel=document.getElementById('pokeSettingsPanel');
-    if(!panel||panel.style.display==='none')return;
-    dragging=true;
-    const rect=panel.getBoundingClientRect();
-    const t=e.touches[0];
-    ox=t.clientX-rect.left;oy=t.clientY-rect.top;
-    panel.style.transform='none';panel.style.top=rect.top+'px';panel.style.left=rect.left+'px';
-  },{passive:true});
-  document.addEventListener('touchmove',function(e){
-    if(!dragging)return;
-    const panel=document.getElementById('pokeSettingsPanel');
-    if(!panel)return;
-    const t=e.touches[0];
-    panel.style.left=(t.clientX-ox)+'px';panel.style.top=(t.clientY-oy)+'px';
-    e.preventDefault();
-  },{passive:false});
-  document.addEventListener('touchend',function(){dragging=false;});
-})();
 
 // ── 第一排：固定文本 ──
 async function savePokeFixText(){
@@ -5211,7 +5280,6 @@ async function doPokeSean(actor='me',targetCid){
   const m={sender:'system',type:'system',text,timestamp:Date.now(),contactId:cid};
   m.id=await add('messages',m);
   if(document.getElementById('view-chat').classList.contains('active')&&String(activeContactId)===String(cid))appendMessageToUI(m);
-  if(!isSean)showInteractToast(text);
   const sel='.avatar-sean';
   document.querySelectorAll(sel).forEach(el=>{el.classList.remove('avatar-shaking');void el.offsetWidth;el.classList.add('avatar-shaking');setTimeout(()=>el.classList.remove('avatar-shaking'),600);});
   if(!isSean&&Math.random()<0.15){
@@ -5229,7 +5297,6 @@ async function doPokeMe(actor='me',targetCid){
   const m={sender:'system',type:'system',text,timestamp:Date.now(),contactId:cid};
   m.id=await add('messages',m);
   if(document.getElementById('view-chat').classList.contains('active')&&String(activeContactId)===String(cid))appendMessageToUI(m);
-  if(!isSean)showInteractToast(text);
   const sel='.avatar-me';
   document.querySelectorAll(sel).forEach(el=>{el.classList.remove('avatar-shaking');void el.offsetWidth;el.classList.add('avatar-shaking');setTimeout(()=>el.classList.remove('avatar-shaking'),600);});
 }
@@ -5345,7 +5412,7 @@ async function initiateGroupCall(isVideo){
     if(_groupCallJoinedMembers.length===0){
       const reason=_busyNames.length>0?`${_busyNames[0]}等忙线`:_rejectedNames.length>0?`${_rejectedNames[0]}等已拒绝`:'无人接听';
       document.getElementById('callStatusText').innerText=reason;
-      setTimeout(()=>endCall(true,`${isVideo?'📹':'📞'} 群通话${reason}`),1500);
+      setTimeout(()=>endCall(true,`${isVideo?'📹':'📞'} ${myName} 发起群通话 · ${reason}`),1500);
       return;
     }
     // 更新通话界面：显示已接通成员名字
@@ -5454,7 +5521,6 @@ async function doGroupPoke(groupId,actorId,targetId){
   const m={sender:'system',type:'system',text,timestamp:Date.now(),contactId:groupId};
   m.id=await add('messages',m);
   if(activeContactId===groupId)appendMessageToUI(m);
-  showInteractToast(text);
 }
 
 // 按指定 contactId 选取 poke 词（不依赖 activeContactId）
@@ -5527,8 +5593,8 @@ function initiateCall(isVideo){
   callTimer=setTimeout(()=>{
     if(!callActive)return;
     if(rand<.60)startCallTimer();
-    else if(rand<.85){document.getElementById('callStatusText').innerText='对方正忙，无法接听';setTimeout(()=>endCall(true,`${currentCallIsVideo?'📹':'📞'} 对方忙线`),1500);}
-    else{contactNamePromise.then(n=>{document.getElementById('callStatusText').innerText=n+' 拒绝了通话';});setTimeout(()=>endCall(true,`${currentCallIsVideo?'📹':'📞'} 对方已拒绝`),1500);}
+    else if(rand<.85){contactNamePromise.then(n=>{document.getElementById('callStatusText').innerText=n+' 忙线，无法接听';setTimeout(()=>endCall(true,`${currentCallIsVideo?'📹':'📞'} ${myName} 与 ${n} 通话 · 对方忙线`),1500);});}
+    else{contactNamePromise.then(n=>{document.getElementById('callStatusText').innerText=n+' 拒绝了通话';setTimeout(()=>endCall(true,`${currentCallIsVideo?'📹':'📞'} ${myName} 与 ${n} 通话 · 对方已拒绝`),1500);});}
   },3000+Math.random()*4000);
 }
 async function triggerIncomingCall(){
@@ -5545,7 +5611,7 @@ async function triggerIncomingCall(){
     // 不同联系人 → 显示忙线
     const isVid=Math.random()>.5;
     await add('callLogs',{timestamp:Date.now(),isVideo:isVid,isIncoming:true,duration:0,type:'busy',label:`${isVid?'📹':'📞'} ${myName} 忙线中`,caller:callerName,receiver:myName,contactId:pickId});
-    playNotifySound(callerName,'来电（忙线中）',false,pickId);
+    playNotifySound(callerName,'来电（忙线中）',false,pickId,pickId);
     addInboxItem({sourceType:'call_missed',targetId:Date.now(),targetType:'call_busy',action:`📞 ${callerName} 来电（忙线中）`,text:`${isVid?'视频':'语音'}通话 · ${myName} 忙线中`,timestamp:Date.now(),contactId:pickId});
     return;
   }
@@ -5568,8 +5634,8 @@ async function triggerIncomingCall(){
   document.getElementById('rejectLabel').innerText='拒绝';
   ov.style.display='flex';
   _unlockBodyForCall();
-  playNotifySound(`${callerName} 来电`,'邀请语音通话',true,pickId);
-  callTimer=setTimeout(()=>{if(callActive&&callIsIncoming){activeContactId=_callPrevContactId;endCall(true,`📞 未接来电`);}},15000);
+  playNotifySound(`${callerName} 来电`,'邀请语音通话',true,pickId,pickId);
+  callTimer=setTimeout(()=>{if(callActive&&callIsIncoming){activeContactId=_callPrevContactId;endCall(true,`📞 ${callerName} 与 ${myName} 通话 · 未接来电`);}},15000);
 }
 function acceptCall(){if(callTimer)clearTimeout(callTimer);callIsIncoming=false;document.getElementById('wrapAcceptBtn').style.display='none';document.getElementById('rejectLabel').innerText='挂断';startCallTimer();}
 let _callStartTime=0;
@@ -5706,13 +5772,21 @@ async function endCall(isManual=true,systemMsg=null){
   // 挂断时隐藏所有底图
   clearCallBg();
   let finalMsg=systemMsg;const wV=currentCallIsVideo,wD=callSeconds,wI=_callWasIncoming;
-  if(!finalMsg&&callSeconds>0)finalMsg=`${wV?'📹':'📞'} 通话时长 ${String(Math.floor(callSeconds/60)).padStart(2,'0')}:${String(callSeconds%60).padStart(2,'0')}`;
-  else if(!finalMsg)finalMsg=wI?`${wV?'📹':'📞'} 已拒绝`:`${wV?'📹':'📞'} 已取消`;
   setTimeout(async()=>{
     document.getElementById('callOverlay').style.display='none';document.getElementById('callMiniFloat').style.display='none';if(callMiniTimer){clearInterval(callMiniTimer);callMiniTimer=null;}callActive=false;
     hideGroupCallBar();
     _relockBody();
     document.getElementById('view-chat').style.paddingTop='';
+    // 若无外部传入的 systemMsg，则构造默认消息（含双方名字）
+    if(!finalMsg){
+      const allCsForName=await loadContacts();
+      const contactName = groupMemberId
+        ? (allCsForName.find(c=>String(c.id)===String(groupMemberId))||{}).name||'成员'
+        : (allCsForName.find(c=>String(c.id)===String(_callMsgContactId))||{}).name||seanName;
+      if(callSeconds>0)finalMsg=`${wV?'📹':'📞'} ${myName} 与 ${contactName} 通话时长 ${String(Math.floor(callSeconds/60)).padStart(2,'0')}:${String(callSeconds%60).padStart(2,'0')}`;
+      else if(wI)finalMsg=`${wV?'📹':'📞'} ${contactName} 与 ${myName} 通话 · 已拒绝`;
+      else finalMsg=`${wV?'📹':'📞'} ${myName} 与 ${contactName} 通话 · 已取消`;
+    }
     const m={sender:'system',type:'system',text:finalMsg,timestamp:Date.now(),callType:wV?'video':'voice',contactId:_callMsgContactId};await add('messages',m);
     if(document.getElementById('view-chat').classList.contains('active'))appendMessageToUI(m);
     let logType='missed';if(wD>0)logType='connected';else if(finalMsg&&finalMsg.includes('拒绝'))logType='rejected';else if(finalMsg&&finalMsg.includes('忙线'))logType='busy';else if(finalMsg&&finalMsg.includes('无人接听'))logType='missed';
@@ -5760,7 +5834,7 @@ function maybeSeanHangUp(){
     const msgs=['宝贝我先挂了，待会聊','我有点事，之后打给你','等下还有事，先挂啦~','宝贝，先挂了哦'];
     const msg=msgs[Math.floor(Math.random()*msgs.length)];
     endCall(false,`${currentCallIsVideo?'📹':'📞'} ${contactName} 挂断了 · ${String(Math.floor(callSeconds/60)).padStart(2,'0')}:${String(callSeconds%60).padStart(2,'0')}`);
-    setTimeout(async()=>{const m={sender:'sean',type:'text',text:msg,timestamp:Date.now(),quote:null,contactId:cid};m.id=await add('messages',m);if(document.getElementById('view-chat').classList.contains('active'))appendMessageToUI(m,'');playNotifySound(contactName,msg,true,cid);},500);
+    setTimeout(async()=>{const m={sender:'sean',type:'text',text:msg,timestamp:Date.now(),quote:null,contactId:cid};m.id=await add('messages',m);if(document.getElementById('view-chat').classList.contains('active'))appendMessageToUI(m,'');playNotifySound(contactName,msg,true,cid,cid);},500);
     });
   }
 }
@@ -5883,60 +5957,6 @@ function triggerExpandAction(action){
     openTransferPanel();
   }
 }
-
-// ── 朋友圈表情包选择器拖动（参照拍一拍面板拖动逻辑） ──
-(function(){
-  let dragging=false,ox=0,oy=0;
-  document.addEventListener('mousedown',function(e){
-    const handle=document.getElementById('momentStickerDragHandle');
-    if(!handle||!handle.contains(e.target))return;
-    const picker=document.getElementById('momentStickerPicker');
-    if(!picker||picker.style.display==='none')return;
-    dragging=true;
-    const rect=picker.getBoundingClientRect();
-    ox=e.clientX-rect.left;oy=e.clientY-rect.top;
-    picker.style.bottom='auto';picker.style.right='auto';
-    picker.style.top=rect.top+'px';picker.style.left=rect.left+'px';
-    e.preventDefault();
-  });
-  document.addEventListener('mousemove',function(e){
-    if(!dragging)return;
-    const picker=document.getElementById('momentStickerPicker');
-    if(!picker)return;
-    let left=e.clientX-ox;
-    let top=e.clientY-oy;
-    left=Math.max(0,Math.min(left,window.innerWidth-picker.offsetWidth));
-    top=Math.max(0,Math.min(top,window.innerHeight-picker.offsetHeight));
-    picker.style.left=left+'px';picker.style.top=top+'px';
-  });
-  document.addEventListener('mouseup',function(){dragging=false;});
-  // 触屏支持
-  document.addEventListener('touchstart',function(e){
-    const handle=document.getElementById('momentStickerDragHandle');
-    if(!handle||!handle.contains(e.target))return;
-    const picker=document.getElementById('momentStickerPicker');
-    if(!picker||picker.style.display==='none')return;
-    dragging=true;
-    const rect=picker.getBoundingClientRect();
-    const t=e.touches[0];
-    ox=t.clientX-rect.left;oy=t.clientY-rect.top;
-    picker.style.bottom='auto';picker.style.right='auto';
-    picker.style.top=rect.top+'px';picker.style.left=rect.left+'px';
-  },{passive:true});
-  document.addEventListener('touchmove',function(e){
-    if(!dragging)return;
-    const picker=document.getElementById('momentStickerPicker');
-    if(!picker)return;
-    const t=e.touches[0];
-    let left=t.clientX-ox;
-    let top=t.clientY-oy;
-    left=Math.max(0,Math.min(left,window.innerWidth-picker.offsetWidth));
-    top=Math.max(0,Math.min(top,window.innerHeight-picker.offsetHeight));
-    picker.style.left=left+'px';picker.style.top=top+'px';
-    e.preventDefault();
-  },{passive:false});
-  document.addEventListener('touchend',function(){dragging=false;});
-})();
 
 // ── 全局点击外部关闭：表情包抽屉、朋友圈表情包选择器 ──
 function initGlobalDismiss(){
@@ -6242,7 +6262,7 @@ async function recallMessage(msgId,dom){
     }
   }
   // 插入系统提示
-  const s={sender:'system',type:'system',text:'你撤回了一条消息',timestamp:Date.now()};
+  const s={sender:'system',type:'system',text:`${myName}撤回了一条消息`,timestamp:Date.now()};
   s.id=await add('messages',s);appendMessageToUI(s);
 }
 async function autoRecallBySean(msgId){
@@ -6280,22 +6300,26 @@ function previewDoodleText(){
   const align=document.getElementById('doodleTextAlign').value;
   const size=parseInt(document.getElementById('doodleTextSize').value)||32;
   doodleCtx.globalCompositeOperation='source-over';
+  const dpr=window.devicePixelRatio||1;
+  const cssW=c.width/dpr,cssH=c.height/dpr;
+  doodleCtx.setTransform(1,0,0,1,0,0);
   doodleCtx.fillStyle='#fff';doodleCtx.fillRect(0,0,c.width,c.height);
+  doodleCtx.setTransform(dpr,0,0,dpr,0,0);
   doodleCtx.font=`bold ${size}px ${font}`;
   doodleCtx.fillStyle=dColor;
   doodleCtx.textAlign=align;doodleCtx.textBaseline='top';
   const lines=text.split('\n');
   const lineH=size*1.5;
-  const startX=align==='center'?c.width/2:align==='right'?c.width-20:20;
+  const startX=align==='center'?cssW/2:align==='right'?cssW-20:20;
   const totalH=lines.length*lineH;
-  const startY=(c.height-totalH)/2;
+  const startY=(cssH-totalH)/2;
   lines.forEach((ln,i)=>{doodleCtx.fillText(ln,startX,startY+i*lineH);});
-  // 装饰散点（和联系人文字涂鸦一样）
+  // 装饰散点
   doodleCtx.globalAlpha=0.25;
   const dotColors=['#e74c3c','#3498db','#2ecc71','#f39c12','#9b59b6','#e91e63','#ff5722','#6c5ce7','#00b894'];
   for(let d=0;d<4+Math.floor(Math.random()*4);d++){
     doodleCtx.beginPath();
-    doodleCtx.arc(30+Math.random()*(c.width-60),15+Math.random()*(c.height-30),1.5+Math.random()*3,0,Math.PI*2);
+    doodleCtx.arc(30+Math.random()*(cssW-60),15+Math.random()*(cssH-30),1.5+Math.random()*3,0,Math.PI*2);
     doodleCtx.fillStyle=dotColors[Math.floor(Math.random()*dotColors.length)];
     doodleCtx.fill();
   }
@@ -6305,18 +6329,53 @@ function previewDoodleText(){
 }
 function initDoodle(){
   const c=document.getElementById('doodleCanvas');if(!c||!c.getContext)return;
-  c.width=c.offsetWidth||640;c.height=360;doodleCtx=c.getContext('2d');doodleCtx.lineCap='round';doodleCtx.lineJoin='round';clearDoodle();
-  const gp=e=>{const rect=c.getBoundingClientRect(),ev=e.touches?e.touches[0]:e;return{x:(ev.clientX-rect.left)*(c.width/rect.width),y:(ev.clientY-rect.top)*(c.height/rect.height)};};
+  // 动态计算画布尺寸，适配不同屏幕
+  const wrapper=c.parentElement;
+  const wrapperRect=wrapper.getBoundingClientRect();
+  const dpr=window.devicePixelRatio||1;
+  // 使用wrapper的实际显示尺寸
+  const canvasW=Math.floor(wrapperRect.width);
+  const canvasH=Math.max(200,Math.floor(wrapperRect.height));
+  // 设置画布实际像素
+  c.width=canvasW*dpr;
+  c.height=canvasH*dpr;
+  // CSS尺寸设为100%
+  c.style.width=canvasW+'px';
+  c.style.height=canvasH+'px';
+  // 缩放以适配DPR
+  doodleCtx=c.getContext('2d');
+  doodleCtx.scale(dpr,dpr);
+  doodleCtx.lineCap='round';
+  doodleCtx.lineJoin='round';
+  clearDoodle();
+  const gp=e=>{const rect=c.getBoundingClientRect(),ev=e.touches?e.touches[0]:e;return{x:(ev.clientX-rect.left),y:(ev.clientY-rect.top)};};
   c.onmousedown=c.ontouchstart=e=>{e.preventDefault();isDrawing=true;const p=gp(e);doodleCtx.beginPath();doodleCtx.moveTo(p.x,p.y);};
   c.onmousemove=c.ontouchmove=e=>{e.preventDefault();if(!isDrawing)return;const p=gp(e);if(dMode==='erase'){doodleCtx.globalCompositeOperation='source-over';doodleCtx.strokeStyle='#ffffff';doodleCtx.lineWidth=30;}else{doodleCtx.globalCompositeOperation='source-over';doodleCtx.strokeStyle=dColor;doodleCtx.lineWidth=4;}doodleCtx.lineTo(p.x,p.y);doodleCtx.stroke();};
   c.onmouseup=c.ontouchend=()=>{isDrawing=false;};
+  // 监听窗口变化，自动调整画布
+  if(c._resizeHandler)c.removeEventListener('resize',c._resizeHandler);
+  c._resizeHandler=()=>{
+    if(!document.getElementById('view-doodle').classList.contains('active'))return;
+    const w=document.getElementById('doodleCanvas');
+    if(w)initDoodle();
+  };
+  window.addEventListener('resize',c._resizeHandler,{passive:true});
+  // 监听键盘弹出/收起
+  if(c._vHeightHandler)c.removeEventListener('visualViewport',c._vHeightHandler);
+  c._vHeightHandler=()=>{
+    if(!document.getElementById('view-doodle').classList.contains('active'))return;
+    setTimeout(()=>initDoodle(),100);
+  };
+  if(window.visualViewport){
+    window.visualViewport.addEventListener('resize',c._vHeightHandler,{passive:true});
+  }
 }
 function setDoodleMode(m){dMode=m;}function setDoodleColor(c){dColor=c;setDoodleMode('draw');}
-function clearDoodle(){const c=document.getElementById('doodleCanvas');doodleCtx.globalCompositeOperation='source-over';doodleCtx.fillStyle='#fff';doodleCtx.fillRect(0,0,c.width,c.height);}
+function clearDoodle(){const c=document.getElementById('doodleCanvas');if(!c||!doodleCtx)return;const dpr=window.devicePixelRatio||1;doodleCtx.setTransform(1,0,0,1,0,0);doodleCtx.fillStyle='#fff';doodleCtx.fillRect(0,0,c.width,c.height);doodleCtx.setTransform(dpr,0,0,dpr,0,0);}
 async function sendDoodle(){const c=document.getElementById('doodleCanvas');await sendMyMessage(c.toDataURL('image/jpeg',.8),'doodle');switchView('view-chat');clearDoodle();}
 
-async function askYesNo(){const q=document.getElementById('decideYesNoInput').value.trim();if(!q)return;const delay=parseInt(document.getElementById('decideYesNoTime').value)||2;document.getElementById('decideYesNoInput').value='';const cid=activeContactId;const askTime=Date.now();const corrKey=await sendMyMessage(`帮我决定：${q}`,'text');const contacts=await getAll('contacts');const cur=contacts.find(c=>String(c.id)===String(cid));const isGroup=cur&&cur.type==='group';setTimeout(async()=>{const replyTime=Date.now();if(isGroup&&cur.members&&cur.members.length>0){const replyMembers=_decideSelectedMembers_yn.length>0?_decideSelectedMembers_yn:cur.members;for(const mid of replyMembers){const ans=Math.random()>.5?'是':'否';const mc=contacts.find(c=>String(c.id)===String(mid));const mn=mc?mc.name:'成员';let replyText;if(mc&&mc.onlineState==='离线'&&Math.random()<.1){replyText=`${mn}离线`;}else if(mc&&mc.onlineState==='忙碌'&&Math.random()<.1){replyText=`${mn}正忙`;}else{replyText=`关于"${q}"，${mn}的决定是：${ans}`;}const m={sender:'sean',type:'text',text:replyText,timestamp:Date.now(),_corrKey:corrKey,contactId:cid,senderMemberId:mid};m.id=await add('messages',m);appendMessageToUI(m,'');playNotifySound('',ans,true,cid);await csAdd('decisions',{type:'yesno',question:q,answer:ans,askTimestamp:askTime,timestamp:Date.now()});await new Promise(r=>setTimeout(r,300));}}else{const ans=Math.random()>.5?'是':'否';const replyText=`关于"${q}"，我的决定是：${ans}`;const m={sender:'sean',type:'text',text:replyText,timestamp:replyTime,_corrKey:corrKey,contactId:cid};m.id=await add('messages',m);appendMessageToUI(m,'');const _cn=await getContactNameById(cid);playNotifySound(_cn,ans,true,cid);await csAdd('decisions',{type:'yesno',question:q,answer:ans,askTimestamp:askTime,timestamp:replyTime});}_decideSelectedMembers_yn=[];renderDecideHistory();const re=document.getElementById('receipt-'+corrKey);if(re){re.innerText='已读';re.style.color='#333';}try{const ms=await getAll('messages');const myM=ms.find(x=>x.sender==='me'&&x._corrKey===corrKey);if(myM){myM.receipt='read_gray';await put('messages',myM);}}catch(e){}},delay*1000);}
-async function askCustomDecide(){const question=document.getElementById('decideCustomQ').value.trim();if(!question)return alert('请输入问题');const opts=document.getElementById('decideCustomInput').value.split(/\r?\n/).map(x=>x.trim()).filter(x=>x);if(opts.length<2)return alert('至少需要输入两个选项');const delay=parseInt(document.getElementById('decideTime').value)||3;document.getElementById('decideCustomQ').value='';document.getElementById('decideCustomInput').value='';const cid=activeContactId;const askTime=Date.now();const corrKey=await sendMyMessage(`问题：${question}\n选项：${opts.join(' / ')}`,'text');const contacts=await getAll('contacts');const cur=contacts.find(c=>String(c.id)===String(cid));const isGroup=cur&&cur.type==='group';setTimeout(async()=>{const replyTime=Date.now();if(isGroup&&cur.members&&cur.members.length>0){const replyMembers=_decideSelectedMembers_custom.length>0?_decideSelectedMembers_custom:cur.members;for(const mid of replyMembers){const ans=opts[Math.floor(Math.random()*opts.length)];const mc=contacts.find(c=>String(c.id)===String(mid));const mn=mc?mc.name:'成员';let replyText;if(mc&&mc.onlineState==='离线'&&Math.random()<.1){replyText=`${mn}离线`;}else if(mc&&mc.onlineState==='忙碌'&&Math.random()<.1){replyText=`${mn}正忙`;}else{replyText=`关于"${question}"，${mn}选：${ans}`;}const m={sender:'sean',type:'text',text:replyText,timestamp:Date.now(),_corrKey:corrKey,contactId:cid,senderMemberId:mid};m.id=await add('messages',m);appendMessageToUI(m,'');playNotifySound('',ans,true,cid);await csAdd('decisions',{type:'custom',question,options:opts.join(' / '),answer:ans,askTimestamp:askTime,timestamp:Date.now()});await new Promise(r=>setTimeout(r,300));}}else{const ans=opts[Math.floor(Math.random()*opts.length)];const replyText=`关于"${question}"，我选：${ans}`;const m={sender:'sean',type:'text',text:replyText,timestamp:replyTime,_corrKey:corrKey,contactId:cid};m.id=await add('messages',m);appendMessageToUI(m,'');const _cn=await getContactNameById(cid);playNotifySound(_cn,ans,true,cid);await csAdd('decisions',{type:'custom',question,options:opts.join(' / '),answer:ans,askTimestamp:askTime,timestamp:replyTime});}_decideSelectedMembers_custom=[];renderDecideHistory();const re=document.getElementById('receipt-'+corrKey);if(re){re.innerText='已读';re.style.color='#333';}try{const ms=await getAll('messages');const myM=ms.find(x=>x.sender==='me'&&x._corrKey===corrKey);if(myM){myM.receipt='read_gray';await put('messages',myM);}}catch(e){}},delay*1000);}
+async function askYesNo(){const q=document.getElementById('decideYesNoInput').value.trim();if(!q)return;const delay=parseInt(document.getElementById('decideYesNoTime').value)||2;document.getElementById('decideYesNoInput').value='';const cid=activeContactId;const askTime=Date.now();const corrKey=await sendMyMessage(`帮我决定：${q}`,'text');const contacts=await getAll('contacts');const cur=contacts.find(c=>String(c.id)===String(cid));const isGroup=cur&&cur.type==='group';setTimeout(async()=>{const replyTime=Date.now();if(isGroup&&cur.members&&cur.members.length>0){const replyMembers=_decideSelectedMembers_yn.length>0?_decideSelectedMembers_yn:cur.members;for(const mid of replyMembers){const ans=Math.random()>.5?'是':'否';const mc=contacts.find(c=>String(c.id)===String(mid));const mn=mc?mc.name:'成员';let replyText;if(mc&&mc.onlineState==='离线'&&Math.random()<.1){replyText=`${mn}离线`;}else if(mc&&mc.onlineState==='忙碌'&&Math.random()<.1){replyText=`${mn}正忙`;}else{replyText=`关于"${q}"，${mn}的决定是：${ans}`;}const m={sender:'sean',type:'text',text:replyText,timestamp:Date.now(),_corrKey:corrKey,contactId:cid,senderMemberId:mid};m.id=await add('messages',m);appendMessageToUI(m,'');playNotifySound('',ans,true,cid,cid);await csAdd('decisions',{type:'yesno',question:q,answer:ans,askTimestamp:askTime,timestamp:Date.now()});await new Promise(r=>setTimeout(r,300));}}else{const ans=Math.random()>.5?'是':'否';const replyText=`关于"${q}"，我的决定是：${ans}`;const m={sender:'sean',type:'text',text:replyText,timestamp:replyTime,_corrKey:corrKey,contactId:cid};m.id=await add('messages',m);appendMessageToUI(m,'');const _cn=await getContactNameById(cid);playNotifySound(_cn,ans,true,cid,cid);await csAdd('decisions',{type:'yesno',question:q,answer:ans,askTimestamp:askTime,timestamp:replyTime});}_decideSelectedMembers_yn=[];renderDecideHistory();const re=document.getElementById('receipt-'+corrKey);if(re){re.innerText='已读';re.style.color='#333';}try{const ms=await getAll('messages');const myM=ms.find(x=>x.sender==='me'&&x._corrKey===corrKey);if(myM){myM.receipt='read_gray';await put('messages',myM);}}catch(e){}},delay*1000);}
+async function askCustomDecide(){const question=document.getElementById('decideCustomQ').value.trim();if(!question)return alert('请输入问题');const opts=document.getElementById('decideCustomInput').value.split(/\r?\n/).map(x=>x.trim()).filter(x=>x);if(opts.length<2)return alert('至少需要输入两个选项');const delay=parseInt(document.getElementById('decideTime').value)||3;document.getElementById('decideCustomQ').value='';document.getElementById('decideCustomInput').value='';const cid=activeContactId;const askTime=Date.now();const corrKey=await sendMyMessage(`问题：${question}\n选项：${opts.join(' / ')}`,'text');const contacts=await getAll('contacts');const cur=contacts.find(c=>String(c.id)===String(cid));const isGroup=cur&&cur.type==='group';setTimeout(async()=>{const replyTime=Date.now();if(isGroup&&cur.members&&cur.members.length>0){const replyMembers=_decideSelectedMembers_custom.length>0?_decideSelectedMembers_custom:cur.members;for(const mid of replyMembers){const ans=opts[Math.floor(Math.random()*opts.length)];const mc=contacts.find(c=>String(c.id)===String(mid));const mn=mc?mc.name:'成员';let replyText;if(mc&&mc.onlineState==='离线'&&Math.random()<.1){replyText=`${mn}离线`;}else if(mc&&mc.onlineState==='忙碌'&&Math.random()<.1){replyText=`${mn}正忙`;}else{replyText=`关于"${question}"，${mn}选：${ans}`;}const m={sender:'sean',type:'text',text:replyText,timestamp:Date.now(),_corrKey:corrKey,contactId:cid,senderMemberId:mid};m.id=await add('messages',m);appendMessageToUI(m,'');playNotifySound('',ans,true,cid,cid);await csAdd('decisions',{type:'custom',question,options:opts.join(' / '),answer:ans,askTimestamp:askTime,timestamp:Date.now()});await new Promise(r=>setTimeout(r,300));}}else{const ans=opts[Math.floor(Math.random()*opts.length)];const replyText=`关于"${question}"，我选：${ans}`;const m={sender:'sean',type:'text',text:replyText,timestamp:replyTime,_corrKey:corrKey,contactId:cid};m.id=await add('messages',m);appendMessageToUI(m,'');const _cn=await getContactNameById(cid);playNotifySound(_cn,ans,true,cid,cid);await csAdd('decisions',{type:'custom',question,options:opts.join(' / '),answer:ans,askTimestamp:askTime,timestamp:replyTime});}_decideSelectedMembers_custom=[];renderDecideHistory();const re=document.getElementById('receipt-'+corrKey);if(re){re.innerText='已读';re.style.color='#333';}try{const ms=await getAll('messages');const myM=ms.find(x=>x.sender==='me'&&x._corrKey===corrKey);if(myM){myM.receipt='read_gray';await put('messages',myM);}}catch(e){}},delay*1000);}
 
 
 // 决策选择回复人（多选勾选即生效，无需额外确认）
@@ -6438,15 +6497,6 @@ async function renderContactSettings() {
       if(gav){gavPrev.style.backgroundImage=`url(${JSON.stringify(gav)})`;gavPrev.style.backgroundSize='cover';gavPrev.style.backgroundPosition='center';gavPrev.textContent='';}
       else{gavPrev.style.backgroundImage='';gavPrev.style.background='linear-gradient(135deg,#43e97b,#38f9d7)';gavPrev.textContent='👥';}
     }
-    // 频率设置
-    const gv2=async(k,el,d)=>{const v=await getContactSetting(k,d);const e=document.getElementById(el);if(e)e.value=v;};
-    await gv2('group_reply_min','csGroupReplyMin','1');
-    await gv2('group_reply_max','csGroupReplyMax','2');
-    await gv2('group_max_replies','csGroupMaxReplies','2');
-    await gv2('group_msg_min','csGroupMsgMin','5');
-    await gv2('group_msg_max','csGroupMsgMax','90');
-    // 成员列表
-    await renderGroupMembersList();
     // 置顶按钮
     const pinBtn=document.getElementById('groupPinBtn');
     if(pinBtn){updatePinBtnState(pinBtn,target);}
@@ -6460,16 +6510,16 @@ function updatePinBtnState(btn,target){
 }
 
 // ===== 群聊成员管理 =====
-async function renderGroupMembersList(){
+async function renderGroupMembersList(containerId='groupManageMemberList'){
   const contacts=await getAll('contacts');
   const group=contacts.find(c=>String(c.id)===String(activeContactId));
   if(!group||group.type!=='group')return;
-  const list=document.getElementById('groupMembersList');
+  const list=document.getElementById(containerId);
   if(!list)return;
   list.innerHTML=(group.members||[]).map(mid=>{
     const mc=contacts.find(c=>String(c.id)===String(mid));
     const mn=mc?mc.name:'未知成员';
-    const av=document.getElementById('groupMembersList')&&getGroupMemberAvatarHTML(mid)||'';
+    const av=getGroupMemberAvatarHTML(mid)||'';
     return `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:#f8f8f8;border-radius:8px;margin-bottom:4px;font-size:13px">
       <div style="display:flex;align-items:center;gap:8px">
         <div style="width:32px;height:32px;border-radius:6px;overflow:hidden;flex-shrink:0;transform:scale(0.76);transform-origin:left center">${av}</div>
@@ -6486,7 +6536,7 @@ async function removeGroupMember(memberId){
   if(!group)return;
   group.members=(group.members||[]).filter(m=>String(m)!==String(memberId));
   await put('contacts',group);
-  await renderGroupMembersList();
+  await renderGroupManage();
   await updateChatHeaderForContact(activeContactId);
   await renderContactsList();
 }
@@ -6507,7 +6557,7 @@ async function showGroupAddMember(){
   if(idx<0||idx>=available.length){alert('无效选择');return;}
   group.members.push(String(available[idx].id));
   await put('contacts',group);
-  await renderGroupMembersList();
+  await renderGroupManage();
   await updateChatHeaderForContact(activeContactId);
   await renderContactsList();
 }
@@ -6538,6 +6588,142 @@ async function disbandGroup(){
   } else {
     switchView('view-contacts');
   }
+}
+
+// ================================================================
+// 群管理功能：角色三级 + 禁言
+// ================================================================
+
+// 获取群禁言列表
+async function _getGroupMutedList(groupId){
+  var r=await get('settings','group_muted_'+groupId);
+  return r&&r.value?JSON.parse(r.value):[];
+}
+// 保存群禁言列表
+async function _setGroupMutedList(groupId,list){
+  await put('settings',{key:'group_muted_'+groupId,value:JSON.stringify(list)});
+}
+// 获取群管理列表
+async function _getGroupAdminList(groupId){
+  var r=await get('settings','group_admins_'+groupId);
+  return r&&r.value?JSON.parse(r.value):[];
+}
+// 保存群管理列表
+async function _setGroupAdminList(groupId,list){
+  await put('settings',{key:'group_admins_'+groupId,value:JSON.stringify(list)});
+}
+// 检查某成员是否被禁言
+async function isGroupMemberMuted(groupId,memberId){
+  var list=await _getGroupMutedList(groupId);
+  return list.indexOf(String(memberId))>=0;
+}
+// 检查某成员是否是群管理
+async function _isGroupAdmin(groupId,memberId){
+  var list=await _getGroupAdminList(groupId);
+  return list.indexOf(String(memberId))>=0;
+}
+// 简单版禁言检查（同步读取缓存）
+function isMutedMemberSimple(groupId,memberId){
+  var key='group_muted_'+groupId;
+  // 无缓存则默认不禁言
+  return false;
+}
+
+// 禁言
+async function groupMuteMember(groupId,memberId,memberName){
+  var list=await _getGroupMutedList(groupId);
+  var sid=String(memberId);
+  if(list.indexOf(sid)>=0)return;
+  list.push(sid);
+  await _setGroupMutedList(groupId,list);
+  // 发系统灰字
+  var sysMsg={sender:'system',type:'system',text:`${myName} 禁言了 ${memberName}`,timestamp:Date.now(),contactId:groupId};
+  sysMsg.id=await add('messages',sysMsg);
+  if(activeContactId===groupId)appendMessageToUI(sysMsg,'');
+}
+// 解除禁言
+async function groupUnmuteMember(groupId,memberId,memberName){
+  var list=await _getGroupMutedList(groupId);
+  var sid=String(memberId);
+  var idx=list.indexOf(sid);
+  if(idx<0)return;
+  list.splice(idx,1);
+  await _setGroupMutedList(groupId,list);
+  var sysMsg={sender:'system',type:'system',text:`${myName} 解除了 ${memberName} 的禁言`,timestamp:Date.now(),contactId:groupId};
+  sysMsg.id=await add('messages',sysMsg);
+  if(activeContactId===groupId)appendMessageToUI(sysMsg,'');
+}
+// 设管理
+async function groupSetAdmin(groupId,memberId,memberName){
+  var list=await _getGroupAdminList(groupId);
+  var sid=String(memberId);
+  if(list.indexOf(sid)>=0)return;
+  list.push(sid);
+  await _setGroupAdminList(groupId,list);
+  var sysMsg={sender:'system',type:'system',text:`${myName} 将 ${memberName} 设为群管理`,timestamp:Date.now(),contactId:groupId};
+  sysMsg.id=await add('messages',sysMsg);
+  if(activeContactId===groupId)appendMessageToUI(sysMsg,'');
+  await renderGroupManage();
+}
+// 撤管理
+async function groupRemoveAdmin(groupId,memberId,memberName){
+  var list=await _getGroupAdminList(groupId);
+  var sid=String(memberId);
+  var idx=list.indexOf(sid);
+  if(idx<0)return;
+  list.splice(idx,1);
+  await _setGroupAdminList(groupId,list);
+  var sysMsg={sender:'system',type:'system',text:`${myName} 取消了 ${memberName} 的群管理身份`,timestamp:Date.now(),contactId:groupId};
+  sysMsg.id=await add('messages',sysMsg);
+  if(activeContactId===groupId)appendMessageToUI(sysMsg,'');
+  await renderGroupManage();
+}
+
+// 渲染群管理页面
+async function renderGroupManage(){
+  // 频率控制：加载已有设置
+  const gv2=async(k,el,d)=>{const v=await getContactSetting(k,d);const e=document.getElementById(el);if(e)e.value=v;};
+  await gv2('group_reply_min','gmGroupReplyMin','1');
+  await gv2('group_reply_max','gmGroupReplyMax','2');
+  await gv2('group_max_replies','gmGroupMaxReplies','2');
+  await gv2('group_msg_min','gmGroupMsgMin','5');
+  await gv2('group_msg_max','gmGroupMsgMax','90');
+  // 成员管理：渲染成员列表（含添加/移除）
+  await renderGroupMembersList('groupManageMemberList');
+  // 角色与禁言列表
+  var listEl=document.getElementById('groupManageList');
+  if(!listEl)return;
+  var contacts=await getAll('contacts');
+  var group=contacts.find(c=>String(c.id)===String(activeContactId));
+  if(!group||group.type!=='group'){listEl.innerHTML='<div style="color:#999;text-align:center;padding:20px">当前不是群聊</div>';return;}
+  var members=group.members||[];
+  var admins=await _getGroupAdminList(activeContactId);
+  var mutes=await _getGroupMutedList(activeContactId);
+  // 群主 = 我（用户）
+  var html='';
+  for(var i=0;i<members.length;i++){
+    var mid=String(members[i]);
+    var mc=contacts.find(c=>String(c.id)===mid);
+    var name=mc?mc.name:'成员 '+mid;
+    var isAdmin=admins.indexOf(mid)>=0;
+    var isMuted=mutes.indexOf(mid)>=0;
+    var roleBadge='<span style="font-size:11px;background:#e8e8e8;color:#666;padding:1px 6px;border-radius:6px;margin-left:6px">成员</span>';
+    if(isAdmin)roleBadge='<span style="font-size:11px;background:#dbeafe;color:#3b82f6;padding:1px 6px;border-radius:6px;margin-left:6px">管理</span>';
+    if(isMuted)roleBadge+=' <span style="font-size:11px;background:#fee2e2;color:#ef4444;padding:1px 6px;border-radius:6px;margin-left:2px">禁言中</span>';
+    var btns='';
+    if(!isAdmin){
+      btns+='<button onclick="event.stopPropagation();groupSetAdmin(\''+activeContactId+'\',\''+mid+'\',\''+name.replace(/'/g,"\\\'")+'\')" style="padding:4px 10px;border:1px solid #3b82f6;background:#fff;color:#3b82f6;border-radius:6px;font-size:12px;cursor:pointer;margin-right:4px">设管理</button>';
+    } else {
+      btns+='<button onclick="event.stopPropagation();groupRemoveAdmin(\''+activeContactId+'\',\''+mid+'\',\''+name.replace(/'/g,"\\\'")+'\')" style="padding:4px 10px;border:1px solid #f59e0b;background:#fff;color:#f59e0b;border-radius:6px;font-size:12px;cursor:pointer;margin-right:4px">撤管理</button>';
+    }
+    if(!isMuted){
+      btns+='<button onclick="event.stopPropagation();groupMuteMember(\''+activeContactId+'\',\''+mid+'\',\''+name.replace(/'/g,"\\\'")+'\');renderGroupManage()" style="padding:4px 10px;border:1px solid #ef4444;background:#fff;color:#ef4444;border-radius:6px;font-size:12px;cursor:pointer">禁言</button>';
+    } else {
+      btns+='<button onclick="event.stopPropagation();groupUnmuteMember(\''+activeContactId+'\',\''+mid+'\',\''+name.replace(/'/g,"\\\'")+'\');renderGroupManage()" style="padding:4px 10px;border:1px solid #10b981;background:#fff;color:#10b981;border-radius:6px;font-size:12px;cursor:pointer">解除禁言</button>';
+    }
+    html+='<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f0f0f0"><div><span style="font-weight:600">'+name+'</span>'+roleBadge+'</div><div>'+btns+'</div></div>';
+  }
+  listEl.innerHTML=html||'<div style="color:#999;text-align:center;padding:20px">暂无成员</div>';
 }
 
 async function togglePinContact(){
@@ -7030,7 +7216,7 @@ async function _dmLike(momentId,ts){
   await csPut('moments',m);
   const isMyMoment=m.author==='me';
   const likeLabel=isMyMoment?`❤️ ${likerName} 赞了你的朋友圈`:'❤️ 赞了自己的朋友圈';
-  playNotifySound(likerName,'赞了你的朋友圈',false,'moments');
+  playNotifySound(likerName,'🌐 赞了你的朋友圈',false,'moments',likerId);
   addMomentInboxItem(momentId,{type:'moment_like',action:likeLabel,text:m.text||'',timestamp:ts,contactId:m.contactId});
   // 获取moment作者ID来bump对应联系人的角标
   const mLike=await csGet('moments',momentId);
@@ -7069,7 +7255,7 @@ async function _dmComment(momentId,ts){
   await csPut('moments',m);
   const isMyMoment=m.author==='me';
   const commentLabel=isMyMoment?`💬 ${commenterName} 评论了你的朋友圈`:'💬 评论了自己的朋友圈';
-  playNotifySound(commenterName,'评论了你的朋友圈',false,'moments');
+  playNotifySound(commenterName,'🌐 评论了你的朋友圈',false,'moments',commenterId);
   addMomentInboxItem(momentId,{type:'moment_comment',action:commentLabel,text:cmtText||'[表情]',timestamp:ts,contactId:m.contactId});
   // 获取moment作者ID来bump对应联系人的角标
   const m2=await csGet('moments',momentId);
@@ -7110,7 +7296,7 @@ async function _ddReply(id,ts){
   d.comments.push({author:'sean',contactId:replierId,text:replyText,media:replyMedia,replyTo:lastMe?myName:null,timestamp:ts});
   await csPut('diaries',d);
   const diaryReplyLabel=d.author==='me'?`↩️ ${replierName} 回复了你的评论`:'💬 回复了日记';
-  playNotifySound(replierName,'回复了日记',false,replierId);
+  playNotifySound(replierName,'📔 回复了日记',false,replierId,replierId);
   addDiaryInboxItem(id,{type:'diary_comment',action:diaryReplyLabel,text:replyText||'[表情]',timestamp:ts,contactId:replierId});
   bumpModuleUnread('diary',replierId);
   if(document.getElementById('view-diary').classList.contains('active'))renderDiaryUI();
@@ -7153,7 +7339,7 @@ async function seanCommentReply(momentId){
 
     m.comments.push({author:'sean',contactId:replierId,text:replyText,media:replyMedia,replyTo:lastMe?myName:null,timestamp:Date.now()});
     await csPut('moments',m);
-    playNotifySound(replierName,'回复了你的评论',false,'moments');
+    playNotifySound(replierName,'🌐 回复了你的评论',false,'moments',replierId);
     const replyPreview=replyText||'[表情]';
     addMomentInboxItem(momentId,{type:'moment_reply',action:'↩️ 回复了你的评论',text:replyPreview,timestamp:Date.now(),contactId:m.contactId});
     // 获取moment作者ID来bump对应联系人的角标
@@ -7289,7 +7475,7 @@ async function seanDiaryComment(diaryId){
     }
     d.comments.push({author:'sean',contactId:commenterId,text:replyText,media:replyMedia,timestamp:Date.now()});
     await csPut('diaries',d);
-    playNotifySound(commenterName,'评论了你的日记',false,d.contactId);
+    playNotifySound(commenterName,'📔 评论了你的日记',false,d.contactId,d.contactId);
     addDiaryInboxItem(diaryId,{type:'diary_comment',action:`💬 ${commenterName} 评论了你的日记`,text:replyText||'[表情]',timestamp:Date.now(),contactId:d.contactId});
     bumpModuleUnread('diary',d.contactId);
     if(document.getElementById('view-diary').classList.contains('active'))renderDiaryUI();
@@ -7335,7 +7521,7 @@ async function seanDiaryCommentReply(id){
     d2.comments.push({author:'sean',contactId:replierId,text:replyText,media:replyMedia,replyTo:lastMe?myName:null,timestamp:Date.now()});
     await csPut('diaries',d2);
     const diaryReplyLabel=d2.author==='me'?`↩️ ${replierName} 回复了你的评论`:'💬 回复了日记';
-    playNotifySound(replierName,'回复了日记',false,replierId);
+    playNotifySound(replierName,'📔 回复了日记',false,replierId,replierId);
     addDiaryInboxItem(id,{type:'diary_comment',action:diaryReplyLabel,text:replyText||'[表情]',timestamp:Date.now(),contactId:replierId});
     bumpModuleUnread('diary');
     if(document.getElementById('view-diary').classList.contains('active'))renderDiaryUI();
@@ -7385,7 +7571,7 @@ async function doOneCheckin(){
     await csAddFor('timeline',pickId,{author:'sean',text:pick,timestamp:Date.now()});
     bumpModuleUnread('timeline',pickId);
     if(document.getElementById('view-timeline').classList.contains('active'))renderTimelineUI();
-    playNotifySound(pickName,`打卡: ${pick}`,false,pickId);
+    playNotifySound(pickName,`📅 打卡: ${pick}`,false,pickId,pickId);
   }
 }
 async function renderTimelineUI(){
@@ -7525,7 +7711,7 @@ async function schedulePendingReplyLetter(){
     }
     const letterId=await csAdd('letters',letterData);
     addLetterInboxItem({letterId,action:'💌 寄来了一封信',text:(letterData.text||'').substring(0,30),timestamp:Date.now(),contactId:_letterCid});
-    playNotifySound(replyContactName||seanName,'寄来了一封时空信件',false,_letterCid);
+    playNotifySound(replyContactName||seanName,'✉️ 寄来了一封时空信件',false,_letterCid,_letterCid);
     bumpModuleUnread('letters',_letterCid);
     if(document.getElementById('view-letters').classList.contains('active'))renderLettersUI();
   },delay);
@@ -7820,7 +8006,7 @@ async function _postOneDiary(){
     const previewText=diaryText.substring(0,50)+(diaryData.media?' [涂鸦]':'');
     addDiaryInboxItem(newId,{type:'diary_comment',action:`📝 ${pickName} 写了一条新日记`,text:previewText,timestamp:Date.now(),contactId:pickId});
     bumpModuleUnread('diary',pickId);
-    playNotifySound(pickName,'写了日记',false,pickId);
+    playNotifySound(pickName,'📔 写了日记',false,pickId,pickId);
     if(document.getElementById('view-diary').classList.contains('active'))renderDiaryUI();
     // 自动安排其他联系人来评论日记
     scheduleDiaryInteract(newId, pickId);
@@ -8337,7 +8523,7 @@ async function scheduleProactiveLetter(){
       }
       const letterId2=await add('letters',letterData);
       addLetterInboxItem({letterId:letterId2,action:`💌 ${pickName} 寄来了一封信`,text:(letterData.text||'').substring(0,30),timestamp:Date.now(),contactId:pickId});
-      playNotifySound(pickName,'寄来了一封时空信件',false,pickId);
+      playNotifySound(pickName,'✉️ 寄来了一封时空信件',false,pickId,pickId);
       bumpModuleUnread('letters',pickId);
       if(document.getElementById('view-letters').classList.contains('active'))renderLettersUI();
     }
@@ -8932,6 +9118,24 @@ self.addEventListener('fetch',e=>{
   const blob=new Blob([swCode],{type:'application/javascript'});
   // serviceWorker disabled for mobile compatibility
 }
+// ESC 全局关闭弹窗
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Escape')return;
+  var os=[
+    {el:document.getElementById('actionSheetOverlay'),fn:closeActionSheet,vis:function(el){return el.style.display!=='none';}},
+    {el:document.getElementById('chatToolbarOverlay'),fn:function(){document.getElementById('chatToolbarOverlay').style.display='none';},vis:function(el){return el.style.display!=='none';}},
+    {el:document.getElementById('chatExpandOverlay'),fn:closeExpandMenu,vis:function(el){return el.classList.contains('active');}},
+    {el:document.getElementById('inboxOverlay'),fn:closeInbox,vis:function(el){return el.style.display==='flex';}},
+    {el:document.getElementById('hbDetailOverlay'),fn:closeHbDetail,vis:function(el){return el.classList.contains('active');}},
+    {el:document.getElementById('tfDetailOverlay'),fn:closeTfDetail,vis:function(el){return el.classList.contains('active');}},
+    {el:document.getElementById('confirmTransferOverlay'),fn:closeConfirmTransfer,vis:function(el){return el.classList.contains('active');}},
+    {el:document.getElementById('grabOverlay'),fn:closeGrabOverlay,vis:function(el){return el.classList.contains('active');}},
+    {el:document.getElementById('hongbaoOverlay'),fn:closeHongbaoPanel,vis:function(el){return el.classList.contains('active');}},
+    {el:document.getElementById('transferOverlay'),fn:closeTransferPanel,vis:function(el){return el.classList.contains('active');}},
+    {el:document.getElementById('rechargeOverlay'),fn:closeRechargeDialog,vis:function(el){return el.classList.contains('active');}}
+  ];
+  for(var i=0;i<os.length;i++){var o=os[i];if(o.el&&o.vis(o.el)){o.fn();break;}}
+});
 </script>
 </body>
 </html>
